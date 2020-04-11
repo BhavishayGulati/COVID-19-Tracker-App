@@ -1,3 +1,13 @@
 <resources>
-    <string name="app_name">coronaTracker</string>
+    <string name="app_name">CoronaTracker</string>
+    <string name="title_home">Home</string>
+    <string name="title_map">Map</string>
+    <string name="title_news">News</string>
+    <string name="confirmed">Confirmed</string>
+    <string name="cured">Cured</string>
+    <string name="dead">Dead</string>
+    <string name="suspected">Suspected</string>
+    <string name="mortality_rate">Mortality Rate</string>
+    <string name="lastupdate">Latest update</string>
+    <string name="corona_tracker">Corona Tracker</string>
 </resources>
