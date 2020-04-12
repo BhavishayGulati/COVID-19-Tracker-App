@@ -6,24 +6,18 @@ import com.bhavishay.coronatracker.models.data.WorldTotalStats
 import com.bhavishay.coronatracker.repository.database.CountryStatsDatabase
 import com.bhavishay.coronatracker.repository.database.WorldStatsDatabase
 import com.bhavishay.coronatracker.repository.network.StatsApi
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.withContext
 import java.io.IOException
-import java.text.DateFormat
 import java.text.ParseException
 import java.text.SimpleDateFormat
-import java.time.format.DateTimeFormatter
 import java.util.*
 
 class WorldStatsRepository(
-    val worldStatsDatabase: WorldStatsDatabase,
-    val countryStatsDatabase: CountryStatsDatabase
+    private val worldStatsDatabase: WorldStatsDatabase,
+    private val countryStatsDatabase: CountryStatsDatabase
 ) {
 
     suspend fun getWorldStats(): WorldTotalStats? {
         var worldTotalStats: WorldTotalStats? = getWorldStatsFromLocalDatabase()
-        Log.d("ApiResponse","total cases ${worldTotalStats?.totalCases}")
         if (worldTotalStats != null) {
             if (shouldRefreshWorldStats(worldTotalStats.lastNetworkCallTime)) {
                 worldTotalStats = refreshWorldStats()
@@ -37,8 +31,7 @@ class WorldStatsRepository(
     }
 
     fun getCountriesStatsList():List<Country>?{
-        val countryStatsList = getCountryStatsListFromLocalDatabase()
-        return countryStatsList
+        return getCountryStatsListFromLocalDatabase()
 
     }
 
@@ -60,7 +53,7 @@ class WorldStatsRepository(
     }
 
     private fun getWorldStatsFromLocalDatabase(): WorldTotalStats? {
-        Log.d("ApiResponse","getting data from cache")
+        Log.d("ApiResponse","checking cache")
         return worldStatsDatabase.worldStatsDatabaseDao.get()
     }
 
@@ -74,14 +67,13 @@ class WorldStatsRepository(
     }
 
     private fun addCountryStatsToLocalDatabase(countryStats: List<Country>?) {
-        if (countryStats != null)
-            countryStats.forEach { country ->
-                countryStatsDatabase.countryStatsDatabaseDao.insert(country)
-            }
+        countryStats?.forEach { country ->
+            countryStatsDatabase.countryStatsDatabaseDao.insert(country)
+        }
     }
 
     private suspend fun refreshWorldStats(): WorldTotalStats? {
-        Log.d("ApiResponse","refreshing data in cache")
+        Log.d("ApiResponse","refreshing from api")
         try {
 
             val worldStatsResponse = StatsApi.retrofitService.getWorldStats()
