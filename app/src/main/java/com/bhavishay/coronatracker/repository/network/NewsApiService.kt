@@ -1,7 +1,5 @@
-package com.bhavishay.coronatracker.network
+package com.bhavishay.coronatracker.repository.network
 
-import android.content.res.Resources
-import com.bhavishay.coronatracker.R
 import com.bhavishay.coronatracker.models.data.NewsApiResponse
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -9,7 +7,6 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
-import retrofit2.http.Path
 import retrofit2.http.Query
 
 private const val BASE_URL = "https://newsapi.org"

@@ -5,12 +5,10 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.squareup.moshi.Json
 
-@Entity(tableName = "states_stats_table")
-data class State(
-
-    @Json(name = "state")
+@Entity(tableName = "india_stats")
+data class IndiaTotalStats(
     @PrimaryKey()
-    val stateName: String,
+    val id:Int =0,
 
     @Json(name = "active")
     @ColumnInfo(name = "active")
@@ -42,11 +40,12 @@ data class State(
 
     @Json(name = "recovered")
     @ColumnInfo(name = "recovered")
-    val recoveredCases: String,
-
-
-    @Json(name = "statecode")
-    @ColumnInfo(name = "statecode")
-    val stateCode: String
+    val recoveredCases: String
 ) {
+
 }
+
+data class IndiaStatsResponse(
+    @Json(name = "total_values") val indiaTotalStat: IndiaTotalStats,
+    @Json(name = "state_wise") val states: Map<String, State>
+)
