@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.bhavishay.coronatracker.R
+import com.bhavishay.coronatracker.network.NewsApi
 import com.bhavishay.coronatracker.network.StatsApi
 import kotlinx.coroutines.*
 import java.lang.Exception
@@ -23,13 +24,18 @@ class MainActivity : AppCompatActivity() {
             try {
               val worldStatsResponse  = StatsApi.retrofitService.getWorldStats()
                 if(worldStatsResponse.isSuccessful)
-                Log.d("statsApiResponse","no of countries ${worldStatsResponse.body()?.countriesStats?.size} Total World Cases ${worldStatsResponse.body()?.worldTotalStats?.totalCases}")
-                else Log.e("statsApiResponse",worldStatsResponse.errorBody()!!.string())
+                Log.d("ApiResponse","no of countries ${worldStatsResponse.body()?.countriesStats?.size} Total World Cases ${worldStatsResponse.body()?.worldTotalStats?.totalCases}")
+                else Log.e("ApiResponse",worldStatsResponse.errorBody()!!.string())
                 delay(1000)
                 val indiaStatsResponse = StatsApi.retrofitService.getIndiaStats()
                 if(indiaStatsResponse.isSuccessful)
-                    Log.d("statsApiResponse","no of states ${indiaStatsResponse.body()?.states?.size} Total India Cases ${indiaStatsResponse.body()?.indiaTotalStat?.activeCases}")
-                else Log.e("statsApiResponse",indiaStatsResponse.errorBody()!!.string())
+                    Log.d("ApiResponse","no of states ${indiaStatsResponse.body()?.states?.size} Total India Cases ${indiaStatsResponse.body()?.indiaTotalStat?.activeCases}")
+                else Log.e("ApiResponse",indiaStatsResponse.errorBody()!!.string())
+
+                val newsApiResponse = NewsApi.retrofitService.getNews("covid India","2020-04-11",pageNo=1)
+                if(newsApiResponse.isSuccessful)
+                    Log.d("ApiResponse","status - ${newsApiResponse.body()?.status} totalNews - ${newsApiResponse.body()?.totalResults} news1 - ${newsApiResponse.body()?.articles?.get(0)?.newsTitle}")
+                else Log.e("ApiResponse",newsApiResponse.errorBody()!!.string())
             }catch (e:Exception){
                 Log.e("statsApiResponse",e.toString())
             }

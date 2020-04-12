@@ -1,0 +1,41 @@
+package com.bhavishay.coronatracker.network
+
+import android.content.res.Resources
+import com.bhavishay.coronatracker.R
+import com.bhavishay.coronatracker.models.data.NewsApiResponse
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.http.GET
+import retrofit2.http.Path
+import retrofit2.http.Query
+
+private const val BASE_URL = "https://newsapi.org"
+
+private val moshi = Moshi.Builder()
+    .add(KotlinJsonAdapterFactory())
+    .build()
+
+private val retrofit = Retrofit
+    .Builder()
+    .baseUrl(BASE_URL)
+    .addConverterFactory(MoshiConverterFactory.create(moshi))
+    .build()
+
+interface NewsApiService{
+
+    @GET("v2/everything")
+    suspend fun getNews(@Query("q") keyword:String,
+                        @Query("from") dateFrom:String,
+                        @Query("page")pageNo:Int,
+                        @Query("pageSize") pageSize:Int = 20,
+                        @Query("apiKey") apiKey:String = "2a2fc6b5bedf48a281256f172dc79eea"
+    ): Response<NewsApiResponse>
+
+}
+
+object NewsApi{
+    val retrofitService = retrofit.create(NewsApiService::class.java)
+}

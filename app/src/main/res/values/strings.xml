@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">coronaTracker</string>
+    <string name="news_api_key">2a2fc6b5bedf48a281256f172dc79eea</string>
+
+    <string name="x_rapidapi_host_header">x-rapidapi-host</string>
+    <string name="x_rapidapi_host_key">corona-virus-world-and-india-data.p.rapidapi.com</string>
+
+    <string name="x_rapidapi_key_header">x-rapidapi-key</string>
+    <string name="x_rapidapi_key">528b37c11amsh6219efd5ce203a8p15c972jsn9bc9ccc46ab3</string>
 </resources>
