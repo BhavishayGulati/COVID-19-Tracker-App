@@ -39,6 +39,10 @@ private val stateStatsDatabase: StateStatsDatabase
 
     }
 
+    fun getStateStats(stateName:String):State?{
+        return stateStatsDatabase.stateStatsDatabaseDao.getStateStats(stateName)
+    }
+
     private fun shouldRefreshStats(timeString: String): Boolean {
         val formatter = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH)
         try {

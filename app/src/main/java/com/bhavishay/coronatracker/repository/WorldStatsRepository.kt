@@ -35,6 +35,10 @@ class WorldStatsRepository(
 
     }
 
+    fun getCountryStats(countryName:String):Country?{
+        return countryStatsDatabase.countryStatsDatabaseDao.getCountryStats(countryName)
+    }
+
     private fun shouldRefreshWorldStats(timeString: String): Boolean {
         val formatter = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH)
         try {
