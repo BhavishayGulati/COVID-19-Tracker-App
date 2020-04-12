@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="signs_and_symptoms">SIGNS AND SYMPTOMS</string>
+    <string name="high_body_temperature">High Body Temperature</string>
+    <string name="coughing_and_sneezing">Coughing and Sneezing</string>
+    <string name="sore_throat">Sore Throat</string>
+    <string name="headache">Headache</string>
+    <string name="difficulty_in_breathing">Difficulty in Breathing</string>
+    <string name="how_its_spread">HOW ITS SPREAD</string>
+    <string name="infection1">Through respiratory droplets produced when an infected person coughs or sneezes These droplets can land in the mouth or noses of people who are nearby or possibly inhaled into lungs</string>
+    <string name="infection2" tools:ignore="TypographyDashes">Through close contact with COVID–19 infected person approximately withing 2 metres 0 6 feet or 2-3 steps.</string>
+    <string name="infection3">By touching objects and surfaces contaminated by Coronavirus and then touching the mouth, nose or eyes.</string>
+    <string name="prevention1">Wash your hands regulary. </string>
+    <string name="prevention2">Use sanitizers more frequently</string>
+    <string name="prevention3">Cough or sneeze into a diposables tissue or bent elbow, and wash hands immediately. Dispose the tissue in a trash or burn it</string>
+    <string name="prevention4">Avoid shaking hands and maintain 6ft distance from people.</string>
+    <string name="prevention5">Person with a cough or sneezing should stay home or keep a social distance and avoid mixing with others</string>
+
+    <string name="what_is_self_quarantine">WHAT IS SELF QUARANTINE ?</string>
+    <string name="what_is_self_quarantine_body">Self quarantine is an act of individuals who may have been exposed to COVID-19 separating themselves for 14 days to monitor if the developed symptoms are gone.</string>
+    <string name="who_should_self_quarintine">WHO SHOULD SELF QUARANTINE?</string>
+    <string name="anyone_who_travel">Anyone who has traveled within the past 14 days to a country with sustained reported COVID-19 cases or has had close contact with a person showing COVID-19 symptoms.</string>
+    <string name="reporting_illness">Reporting Illness</string>
+</resources>
