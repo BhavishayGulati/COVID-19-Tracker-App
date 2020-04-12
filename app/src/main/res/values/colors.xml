@@ -11,4 +11,11 @@
     <color name="pastelLightBlue">#222842</color>
     <color name="pastelMoreLightBlue">#424C79</color>
     <color name="lightText">#99ffffff</color>
+    <color name="white">#ffff</color>
+    <color name="colorTextPrimary">#d6d6d6</color>
+    <color name="colorTextSecondary">#999999</color>
+    <color name="buttonColor">#6A91E3</color>
+    <color name="colorTextPrimaryRed">#E9CFD6</color>
+    <color name="colorTextPrimaryGreen">#7bb974</color>
+
 </resources>
