@@ -6,4 +6,9 @@
         android:icon="@drawable/ic_share_24dp"
         android:title="@string/menu_share_app_link"
         app:showAsAction="always|withText" />
+    <item
+        android:id="@+id/action_search_app"
+        android:icon="@drawable/ic_share_24dp"
+        android:title="Search"
+        app:showAsAction="always|withText" />
 </menu>

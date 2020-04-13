@@ -14,6 +14,7 @@ import retrofit2.http.GET
 
 private const val BASE_URL = "https://corona-virus-world-and-india-data.p.rapidapi.com"
 
+
 private val moshi = Moshi.Builder()
     .add(KotlinJsonAdapterFactory())
     .build()
@@ -47,6 +48,12 @@ interface StatsApiService {
 
     @GET("api_india")
     suspend fun getIndiaStats(): Response<IndiaStatsResponse>
+
+//    @GET("country_name")
+//    suspend fun getCountryName(): Response<WorldStatsResponse>{
+//
+//    }
+
 }
 
 object StatsApi {

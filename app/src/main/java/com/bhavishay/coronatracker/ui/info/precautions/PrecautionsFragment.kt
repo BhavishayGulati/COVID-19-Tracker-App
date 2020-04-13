@@ -11,9 +11,7 @@ import com.bhavishay.coronatracker.R
 
 class PrecautionsFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = PrecautionsFragment()
-    }
+
 
     private lateinit var viewModel: PrecautionsViewModel
 

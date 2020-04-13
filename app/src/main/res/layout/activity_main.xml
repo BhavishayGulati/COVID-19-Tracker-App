@@ -32,15 +32,15 @@
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:layout_margin="20dp"
-            android:layout_weight="1" >
+            android:layout_weight="1">
 
         </com.bhavishay.coronatracker.charts.SummaryPieChart>
 
         <LinearLayout
             android:id="@+id/stats"
-            android:layout_margin="5dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_margin="5dp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -101,7 +101,7 @@
                         android:layout_gravity="center"
                         android:indeterminate="true"
                         android:indeterminateDrawable="@drawable/progress_bar_circular_grey_small"
-                        android:visibility="invisible"/>
+                        android:visibility="invisible" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -132,7 +132,8 @@
                         android:layout_gravity="center"
                         android:indeterminate="true"
                         android:indeterminateDrawable="@drawable/progress_bar_circular_grey_small"
-                        android:visibility="invisible"/>
+                        android:visibility="invisible" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -188,41 +189,42 @@
         tools:text="Updated on 12/04/2020" />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:gravity="center"
         android:layout_height="wrap_content"
-        android:weightSum="2"
         android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:weightSum="2"
         app:layout_constraintBottom_toTopOf="@+id/nav_view">
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/materialButton2"
+            android:id="@+id/nav_precautions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="30dp"
-            android:foreground="?android:attr/selectableItemBackground"
             android:layout_weight="1"
-            android:elevation="1dp"
-            android:textColor="@color/white"
             android:backgroundTint="@color/buttonColor"
-            android:text="@string/precautions" />
+            android:elevation="1dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:text="@string/precautions"
+            android:textColor="@color/white" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/Btn_Helpline"
+            android:id="@+id/nav_help"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/buttonColor"
             android:drawablePadding="5dp"
             android:elevation="1dp"
             android:foreground="?android:attr/selectableItemBackground"
             android:stateListAnimator="@null"
             android:text="@string/helpline"
-            android:layout_weight="1"
-            android:translationZ="2dp"
             android:textColor="@color/white"
-            android:backgroundTint="@color/buttonColor"
-            app:cornerRadius="8dp"
-            android:layout_marginEnd="20dp"/>
+            android:translationZ="2dp"
+            app:cornerRadius="8dp" />
     </LinearLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -236,5 +238,22 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:menu="@menu/bottom_nav_menu" />
+
+
+<!--    <fragment-->
+<!--        android:id="@+id/nav_host_fragment"-->
+<!--        android:name="androidx.navigation.fragment.NavHostFragment"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_marginStart="10dp"-->
+<!--        android:layout_marginTop="40dp"-->
+<!--        android:layout_marginEnd="10dp"-->
+<!--        android:layout_marginBottom="10dp"-->
+<!--        app:defaultNavHost="true"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/linearLayout"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/charts"-->
+<!--        app:navGraph="@navigation/app_navigation" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

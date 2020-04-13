@@ -25,4 +25,6 @@
     <string name="xhoursago">%1$s hours ago</string>
     <string name="yesterday">yesterday</string>
     <string name="xdaysago">%1$s days ago</string>
+    <string name="learn_more_about_covid_19">Learn More about COVID 19</string>
+    <string name="covid_19_do_s_amp_don_ts"><![CDATA[COVID 19 Do\'s & Don\'ts]]></string>
 </resources>
