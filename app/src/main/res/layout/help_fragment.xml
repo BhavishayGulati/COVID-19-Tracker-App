@@ -64,77 +64,77 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.appcompat.widget.AppCompatImageButton
-                android:id="@+id/whatsapp_imageBtn"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_margin="10dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:backgroundTint="#00000000"
-                android:src="@drawable/icon_whatsapp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView7" />
+<!--            <androidx.appcompat.widget.AppCompatImageButton-->
+<!--                android:id="@+id/whatsapp_imageBtn"-->
+<!--                android:layout_width="60dp"-->
+<!--                android:layout_height="60dp"-->
+<!--                android:layout_margin="10dp"-->
+<!--                android:layout_marginStart="10dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:layout_marginBottom="10dp"-->
+<!--                android:backgroundTint="#00000000"-->
+<!--                android:src="@drawable/icon_whatsapp"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/textView7" />-->
 
-            <androidx.appcompat.widget.AppCompatImageButton
-                android:id="@+id/instagram_imageBtn"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_margin="10dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:backgroundTint="@color/transparent"
-                android:src="@drawable/instagram_icon"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/whatsapp_imageBtn"
-                app:layout_constraintTop_toBottomOf="@+id/textView7"
-                app:layout_constraintVertical_bias="1.0" />
+<!--            <androidx.appcompat.widget.AppCompatImageButton-->
+<!--                android:id="@+id/instagram_imageBtn"-->
+<!--                android:layout_width="60dp"-->
+<!--                android:layout_height="60dp"-->
+<!--                android:layout_margin="10dp"-->
+<!--                android:layout_marginStart="20dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:layout_marginBottom="10dp"-->
+<!--                android:backgroundTint="@color/transparent"-->
+<!--                android:src="@drawable/instagram_icon"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintStart_toEndOf="@+id/whatsapp_imageBtn"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/textView7"-->
+<!--                app:layout_constraintVertical_bias="1.0" />-->
 
-            <ImageButton
-                android:id="@+id/gmail_imageBtn"
-                android:contentDescription="Takes you to the Gmail "
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_margin="10dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:backgroundTint="@color/transparent"
-                android:src="@drawable/gmail_icon"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/instagram_imageBtn"
-                app:layout_constraintTop_toBottomOf="@+id/textView7" />
+<!--            <ImageButton-->
+<!--                android:id="@+id/gmail_imageBtn"-->
+<!--                android:contentDescription="Takes you to the Gmail "-->
+<!--                android:layout_width="60dp"-->
+<!--                android:layout_height="60dp"-->
+<!--                android:layout_margin="10dp"-->
+<!--                android:layout_marginStart="20dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:layout_marginBottom="10dp"-->
+<!--                android:backgroundTint="@color/transparent"-->
+<!--                android:src="@drawable/gmail_icon"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintStart_toEndOf="@+id/instagram_imageBtn"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/textView7" />-->
 
-            <ImageButton
-                android:id="@+id/twitter_imageBtn"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:backgroundTint="@color/transparent"
-                android:src="@drawable/twitter_icon"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/gmail_imageBtn"
-                app:layout_constraintTop_toBottomOf="@+id/textView7" />
+<!--            <ImageButton-->
+<!--                android:id="@+id/twitter_imageBtn"-->
+<!--                android:layout_width="60dp"-->
+<!--                android:layout_height="60dp"-->
+<!--                android:layout_marginStart="20dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:layout_marginBottom="10dp"-->
+<!--                android:backgroundTint="@color/transparent"-->
+<!--                android:src="@drawable/twitter_icon"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintStart_toEndOf="@+id/gmail_imageBtn"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/textView7" />-->
 
-            <ImageButton
-                android:id="@+id/imageButton3"
-                android:layout_width="60dp"
-                android:layout_height="0dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="10dp"
-                android:backgroundTint="@color/transparent"
-                android:src="@drawable/phone_icon"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/twitter_imageBtn"
-                app:layout_constraintTop_toBottomOf="@+id/textView7" />
+<!--            <ImageButton-->
+<!--                android:id="@+id/imageButton3"-->
+<!--                android:layout_width="60dp"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_marginStart="20dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:layout_marginEnd="10dp"-->
+<!--                android:layout_marginBottom="10dp"-->
+<!--                android:backgroundTint="@color/transparent"-->
+<!--                android:src="@drawable/phone_icon"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toEndOf="@+id/twitter_imageBtn"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/textView7" />-->
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

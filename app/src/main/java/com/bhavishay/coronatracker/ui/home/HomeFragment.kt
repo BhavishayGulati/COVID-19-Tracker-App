@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.bhavishay.coronatracker.R
+import com.bhavishay.coronatracker.ui.info.precautions.PrecautionsFragment
+import kotlinx.android.synthetic.main.home_fragment.*
 
 class HomeFragment : Fragment() {
 
@@ -16,7 +18,15 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         return inflater.inflate(R.layout.home_fragment, container, false)
+
+    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        nav_precautions.setOnClickListener{
+
+        }
     }
 
 

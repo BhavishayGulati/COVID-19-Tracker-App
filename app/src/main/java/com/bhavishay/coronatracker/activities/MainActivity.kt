@@ -3,6 +3,8 @@ package com.bhavishay.coronatracker.activities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuItem
+import android.widget.Toast
 import com.bhavishay.coronatracker.R
 import com.bhavishay.coronatracker.models.data.WorldStatsResponse
 import com.bhavishay.coronatracker.repository.WorldStatsRepository
@@ -10,21 +12,46 @@ import com.bhavishay.coronatracker.repository.database.CountryStatsDatabase
 import com.bhavishay.coronatracker.repository.database.WorldStatsDatabase
 import com.bhavishay.coronatracker.repository.network.NewsApi
 import com.bhavishay.coronatracker.repository.network.StatsApi
+import com.bhavishay.coronatracker.ui.countryList.CountryListViewModel
+import com.bhavishay.coronatracker.ui.info.precautions.PrecautionsFragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.home_fragment.*
 import kotlinx.coroutines.*
 import java.lang.Exception
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var viewModel: CountryListViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val fManager = supportFragmentManager
+
+        //val precautionsFragment = PrecautionsFragment()
+       //supportFragmentManager.beginTransaction().add(R.id.container_id,precautionsFragment).commit()
+
+        addFrag()
 
         testApi()
 
-
+        nav_view.setOnNavigationItemReselectedListener(BottomNavigationView.OnNavigationItemReselectedListener {
+            Toast.makeText(this,"hello",Toast.LENGTH_SHORT).show()
+        })
 
     }
+
+    private fun addFrag() {
+        val precautionsFragment = PrecautionsFragment()
+        val fT = supportFragmentManager.beginTransaction()
+        fT.add(R.id.container_id,precautionsFragment,"pre")
+        fT.commit()
+    }
+
+
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        if()
+//    }
 
     private fun testApi(){
         CoroutineScope(Dispatchers.IO).launch {
@@ -36,7 +63,7 @@ class MainActivity : AppCompatActivity() {
                CountryStatsDatabase.getInstance(this@MainActivity)
                )
                 val worldStats = repository.getWorldStats()
-                Log.d("ApiResponse","total cases ${worldStats?.totalCases}")
+           //     Log.d("ApiResponse","total cases ${worldStats?.totalCases}")
 
 //                delay(1000)
 //                val indiaStatsResponse = StatsApi.retrofitService.getIndiaStats()
