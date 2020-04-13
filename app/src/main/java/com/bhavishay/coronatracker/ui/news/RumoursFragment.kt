@@ -1,4 +1,4 @@
-package com.bhavishay.coronatracker.ui.info.rumors
+package com.bhavishay.coronatracker.ui.news
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
@@ -9,24 +9,24 @@ import android.view.ViewGroup
 
 import com.bhavishay.coronatracker.R
 
-class RumorsFragment : Fragment() {
+class RumoursFragment : Fragment() {
 
     companion object {
-        fun newInstance() = RumorsFragment()
+        fun newInstance() = NewsFragment()
     }
 
-    private lateinit var viewModel: RumorsViewModel
+    private lateinit var viewModel: NewsViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.rumors_fragment, container, false)
+        return inflater.inflate(R.layout.rumours_fragment, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(RumorsViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(NewsViewModel::class.java)
         // TODO: Use the ViewModel
     }
 

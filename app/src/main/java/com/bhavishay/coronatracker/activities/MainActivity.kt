@@ -10,6 +10,7 @@ import com.bhavishay.coronatracker.repository.database.CountryStatsDatabase
 import com.bhavishay.coronatracker.repository.database.WorldStatsDatabase
 import com.bhavishay.coronatracker.repository.network.NewsApi
 import com.bhavishay.coronatracker.repository.network.StatsApi
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.*
 import java.lang.Exception
 
@@ -20,6 +21,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         testApi()
+
     }
 
     private fun testApi(){
