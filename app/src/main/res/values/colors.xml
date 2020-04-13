@@ -17,5 +17,6 @@
     <color name="buttonColor">#6A91E3</color>
     <color name="colorTextPrimaryRed">#E9CFD6</color>
     <color name="colorTextPrimaryGreen">#7bb974</color>
+    <color name="transparent">#00000000</color>
 
 </resources>
