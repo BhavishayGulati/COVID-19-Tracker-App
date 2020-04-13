@@ -12,6 +12,7 @@
     <string name="corona_tracker">Corona Tracker</string>
     <string name="title_stats">Stats</string>
     <string name="menu_share_app_link">APP_LINK</string>
+    <string name="menu_search">Search</string>
     <string name="label_total_confirmed">Total Confirmed</string>
     <string name="label_total_deaths">Total Deaths</string>
     <string name="label_total_recovered">Total Recovered</string>
