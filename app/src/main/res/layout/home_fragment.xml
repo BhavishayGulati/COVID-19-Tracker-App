@@ -8,14 +8,6 @@
     android:background="@color/pastelBlue"
     android:paddingTop="0dp">
 
-<!--    <include-->
-<!--        android:id="@+id/home_main_toolbar"-->
-<!--        layout="@layout/custom_toolbar"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content">-->
-
-<!--    </include>-->
-
     <LinearLayout
         android:id="@+id/charts"
         android:layout_width="match_parent"
@@ -189,49 +181,45 @@
         app:layout_constraintTop_toBottomOf="@+id/charts"
         tools:text="Updated on 12/04/2020" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:weightSum="2"
-        app:layout_constraintBottom_toBottomOf="@+id/nav_view">
-
-    </LinearLayout>
-
 
     <include
         android:id="@+id/country_list"
         layout="@layout/country_list_fragment"
         android:layout_width="match_parent"
         android:layout_height="350dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.067" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/nav_precautions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="32dp"
         android:layout_weight="1"
         android:backgroundTint="@color/buttonColor"
         android:elevation="1dp"
         android:foreground="?android:attr/selectableItemBackground"
         android:text="@string/precautions"
         android:textColor="@color/white"
-        app:layout_constraintBaseline_toBaselineOf="@+id/nav_help"
-        tools:layout_editor_absoluteX="27dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/nav_help"
+        app:layout_constraintHorizontal_bias="0.406"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/country_list"
+        app:layout_constraintVertical_bias="0.0" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/nav_help"
-        android:layout_width="wrap_content"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="72dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
         android:layout_weight="1"
         android:backgroundTint="@color/buttonColor"
         android:drawablePadding="5dp"
@@ -242,26 +230,8 @@
         android:textColor="@color/white"
         android:translationZ="2dp"
         app:cornerRadius="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/country_list"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/country_list" />
 
-
-    <!--    <fragment-->
-    <!--        android:id="@+id/nav_host_fragment"-->
-    <!--        android:name="androidx.navigation.fragment.NavHostFragment"-->
-    <!--        android:layout_width="0dp"-->
-    <!--        android:layout_height="0dp"-->
-    <!--        android:layout_marginStart="10dp"-->
-    <!--        android:layout_marginTop="40dp"-->
-    <!--        android:layout_marginEnd="10dp"-->
-    <!--        android:layout_marginBottom="10dp"-->
-    <!--        app:defaultNavHost="true"-->
-    <!--        app:layout_constraintBottom_toTopOf="@+id/linearLayout"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toBottomOf="@+id/charts"-->
-    <!--        app:navGraph="@navigation/app_navigation" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
