@@ -8,7 +8,7 @@ import com.squareup.moshi.Json
 @Entity(tableName = "india_stats")
 data class IndiaTotalStats(
     @PrimaryKey()
-    val id:Int =0,
+    val id: Int = 0,
 
     @Json(name = "active")
     @ColumnInfo(name = "active")
@@ -40,7 +40,10 @@ data class IndiaTotalStats(
 
     @Json(name = "recovered")
     @ColumnInfo(name = "recovered")
-    val recoveredCases: String
+    val recoveredCases: String,
+
+    @ColumnInfo(name = "last_network_call_time")
+    var lastNetworkCallTime: String = ""
 ) {
 
 }

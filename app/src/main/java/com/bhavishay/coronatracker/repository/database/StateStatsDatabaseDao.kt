@@ -9,9 +9,6 @@ interface StateStatsDatabaseDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(stateStats: State)
 
-    @Update
-    fun update(stateStats: State)
-
     @Query("SELECT * from states_stats_table WHERE stateName = :stateName")
     fun getStateStats(stateName:String):State?
 
