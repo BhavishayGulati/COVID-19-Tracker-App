@@ -40,16 +40,17 @@ class WorldStatsRepository(
     }
 
     private fun shouldRefreshWorldStats(timeString: String): Boolean {
+
         val formatter = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH)
         try {
             val date = formatter.parse(timeString)
+            Log.d("timeString"," should refresh ${date?.toString()}")
             val currentDate = Date()
             val diff = currentDate.time - date?.time!!
             val seconds = diff / 1000
             val minutes = seconds / 60
-            val hours = minutes / 60
 
-            return hours > 1
+            return minutes > 60
         } catch (e: ParseException) {
 
         }
@@ -86,7 +87,7 @@ class WorldStatsRepository(
                 val formatter = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH)
                 val worldTotalStats = responseBody?.worldTotalStats
                 worldTotalStats?.lastNetworkCallTime = formatter.format(Date())
-                Log.d("timeString","${formatter.format(Date())}")
+                Log.d("timeString"," refreshing ${formatter.format(Date())}")
 
                     addWorldStatsToLocalDatabase(worldTotalStats)
                 addCountryStatsToLocalDatabase(responseBody?.countriesStats)

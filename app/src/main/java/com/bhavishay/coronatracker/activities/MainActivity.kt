@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        testApi()
+
 
         val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { menuItem ->
             when(menuItem.itemId){
@@ -83,31 +83,4 @@ class MainActivity : AppCompatActivity() {
 //    }
 
 
-    private fun testApi(){
-        CoroutineScope(Dispatchers.IO).launch {
-
-            try {
-
-               val repository = WorldStatsRepository(
-                   WorldStatsDatabase.getInstance(this@MainActivity),
-               CountryStatsDatabase.getInstance(this@MainActivity)
-               )
-                val worldStats = repository.getWorldStats()
-                Log.d("ApiResponse","total cases ${worldStats?.totalCases}")
-
-//                delay(1000)
-//                val indiaStatsResponse = StatsApi.retrofitService.getIndiaStats()
-//                if(indiaStatsResponse.isSuccessful)
-//                    Log.d("ApiResponse","no of states ${indiaStatsResponse.body()?.states?.size} Total India Cases ${indiaStatsResponse.body()?.indiaTotalStat?.activeCases}")
-//                else Log.e("ApiResponse",indiaStatsResponse.errorBody()!!.string())
-//
-                val newsApiResponse = NewsApi.retrofitService.getNews("covid india","2020-04-11",pageNo=1)
-                if(newsApiResponse.isSuccessful)
-                    Log.d("ApiResponse","status - ${newsApiResponse.body()?.status} totalNews - ${newsApiResponse.body()?.totalResults} news1 - ${newsApiResponse.body()?.articles?.get(0)?.newsTitle}")
-                else Log.e("ApiResponse",newsApiResponse.errorBody()!!.string())
-            }catch (e:Exception){
-                Log.e("statsApiResponse",e.toString())
-            }
-        }
-    }
 }
