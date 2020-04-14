@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,39 +12,85 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="10dp"
         android:text="@string/reporting_illness"
         android:textColor="@color/white"
         android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_margin="10dp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/textView3"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
         android:text="@string/illness"
         android:textColor="@color/white"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.666"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/helpline_no"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView5"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:textStyle="bold"
+        android:text="@string/helpline_no"
+        android:textColor="@color/pastelRed"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/helpline_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/helpline_no"
+        android:textStyle="bold"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:text="@string/helpline_message"
+        android:textColor="@color/pastelRed"
+        android:textSize="18sp" />
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_phone_details"
+        android:clickable="true"
+        android:background="@color/white"
+        android:drawableStart="@drawable/phone_icon"
+        android:drawablePadding="5dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="15dp"
+        android:padding="5dp"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:layout_below="@id/helpline_message"
+        android:gravity="center"
+        android:text="Helpline Numbers \n State &amp; District Wise"
+        android:focusable="true" />
+
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5">
+        android:layout_margin="12dp"
+        android:backgroundTint="@color/white"
+        android:layout_alignParentBottom="true">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -59,87 +105,86 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
                 android:text="@string/helplines_given"
+
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-<!--            <androidx.appcompat.widget.AppCompatImageButton-->
-<!--                android:id="@+id/whatsapp_imageBtn"-->
-<!--                android:layout_width="60dp"-->
-<!--                android:layout_height="60dp"-->
-<!--                android:layout_margin="10dp"-->
-<!--                android:layout_marginStart="10dp"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:layout_marginBottom="10dp"-->
-<!--                android:backgroundTint="#00000000"-->
-<!--                android:src="@drawable/icon_whatsapp"-->
-<!--                app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/textView7" />-->
+            <ImageButton
+                android:id="@+id/whatsapp_imageBtn"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="#00000000"
+                android:src="@drawable/icon_whatsapp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/instagram_imageBtn"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
-<!--            <androidx.appcompat.widget.AppCompatImageButton-->
-<!--                android:id="@+id/instagram_imageBtn"-->
-<!--                android:layout_width="60dp"-->
-<!--                android:layout_height="60dp"-->
-<!--                android:layout_margin="10dp"-->
-<!--                android:layout_marginStart="20dp"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:layout_marginBottom="10dp"-->
-<!--                android:backgroundTint="@color/transparent"-->
-<!--                android:src="@drawable/instagram_icon"-->
-<!--                app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                app:layout_constraintStart_toEndOf="@+id/whatsapp_imageBtn"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/textView7"-->
-<!--                app:layout_constraintVertical_bias="1.0" />-->
+            <ImageButton
+                android:id="@+id/instagram_imageBtn"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/transparent"
+                android:src="@drawable/instagram_icon"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/gmail_imageBtn"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/whatsapp_imageBtn"
+                app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
-<!--            <ImageButton-->
-<!--                android:id="@+id/gmail_imageBtn"-->
-<!--                android:contentDescription="Takes you to the Gmail "-->
-<!--                android:layout_width="60dp"-->
-<!--                android:layout_height="60dp"-->
-<!--                android:layout_margin="10dp"-->
-<!--                android:layout_marginStart="20dp"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:layout_marginBottom="10dp"-->
-<!--                android:backgroundTint="@color/transparent"-->
-<!--                android:src="@drawable/gmail_icon"-->
-<!--                app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                app:layout_constraintStart_toEndOf="@+id/instagram_imageBtn"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/textView7" />-->
+            <ImageButton
+                android:id="@+id/gmail_imageBtn"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/transparent"
+                android:src="@drawable/gmail_icon"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/twitter_imageBtn"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/instagram_imageBtn"
+                app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
-<!--            <ImageButton-->
-<!--                android:id="@+id/twitter_imageBtn"-->
-<!--                android:layout_width="60dp"-->
-<!--                android:layout_height="60dp"-->
-<!--                android:layout_marginStart="20dp"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:layout_marginBottom="10dp"-->
-<!--                android:backgroundTint="@color/transparent"-->
-<!--                android:src="@drawable/twitter_icon"-->
-<!--                app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                app:layout_constraintStart_toEndOf="@+id/gmail_imageBtn"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/textView7" />-->
+            <ImageButton
+                android:id="@+id/twitter_imageBtn"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/transparent"
+                android:src="@drawable/twitter_icon"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/facebook_imageBtn"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/gmail_imageBtn"
+                app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
-<!--            <ImageButton-->
-<!--                android:id="@+id/imageButton3"-->
-<!--                android:layout_width="60dp"-->
-<!--                android:layout_height="0dp"-->
-<!--                android:layout_marginStart="20dp"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:layout_marginEnd="10dp"-->
-<!--                android:layout_marginBottom="10dp"-->
-<!--                android:backgroundTint="@color/transparent"-->
-<!--                android:src="@drawable/phone_icon"-->
-<!--                app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintStart_toEndOf="@+id/twitter_imageBtn"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/textView7" />-->
+            <ImageButton
+                android:id="@+id/facebook_imageBtn"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/transparent"
+                android:src="@drawable/facebook_icon"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/twitter_imageBtn"
+                app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
-
+</RelativeLayout>
