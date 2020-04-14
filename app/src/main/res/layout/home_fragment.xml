@@ -66,6 +66,7 @@
                         android:visibility="invisible" />
 
                     <TextView
+                        android:id="@+id/text_confirmed_cases"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -97,6 +98,7 @@
                         android:visibility="invisible" />
 
                     <TextView
+                        android:id="@+id/text_deceased_cases"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -128,6 +130,7 @@
                         android:visibility="invisible" />
 
                     <TextView
+                        android:id="@+id/text_recovered_cases"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"

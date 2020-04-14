@@ -77,7 +77,6 @@ class WorldStatsRepository(
     }
 
     private suspend fun refreshWorldStats(): WorldTotalStats? {
-        Log.d("ApiResponse","refreshing from api")
         try {
 
             val worldStatsResponse = StatsApi.retrofitService.getWorldStats()
@@ -87,6 +86,7 @@ class WorldStatsRepository(
                 val formatter = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH)
                 val worldTotalStats = responseBody?.worldTotalStats
                 worldTotalStats?.lastNetworkCallTime = formatter.format(Date())
+                Log.d("timeString","${formatter.format(Date())}")
 
                     addWorldStatsToLocalDatabase(worldTotalStats)
                 addCountryStatsToLocalDatabase(responseBody?.countriesStats)
