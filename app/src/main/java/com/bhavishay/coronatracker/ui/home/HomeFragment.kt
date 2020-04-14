@@ -26,16 +26,16 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        nav_precautions.setOnClickListener {
-
-            nav_precautions.setOnClickListener{
-                var fragmentTransaction:FragmentTransaction = parentFragmentManager.beginTransaction()
-                fragmentTransaction.replace(R.id.container,PrecautionsFragment())
-                fragmentTransaction.addToBackStack(null)
-                fragmentTransaction.commit()
-            }
-
-        }
+//        nav_precautions.setOnClickListener {
+//
+//            nav_precautions.setOnClickListener{
+//                var fragmentTransaction:FragmentTransaction = parentFragmentManager.beginTransaction()
+//                fragmentTransaction.replace(R.id.container,PrecautionsFragment())
+//                fragmentTransaction.addToBackStack(null)
+//                fragmentTransaction.commit()
+//            }
+//
+//        }
     }
 
 }

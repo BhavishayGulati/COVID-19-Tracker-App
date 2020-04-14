@@ -18,20 +18,12 @@ class CountryListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.country_list_fragment, container, false)
+        return inflater.inflate(R.layout.states_list_fragment, container, false)
 
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.isLoading.observe(viewLifecycleOwner, Observer {isLoading ->
-            if (!isLoading){
-                viewModel.getCountriesList(context!!)
-               var totalCases= viewModel.worldTotalStats.totalCases
-                Log.e("Api response",totalCases)
-            }else{
-                Log.e("Api respone","No result")
-            }
-        })
+
     }
 }
