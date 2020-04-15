@@ -5,11 +5,13 @@
         android:id="@+id/action_search_app"
         android:icon="@drawable/ic_search"
         android:title="@string/menu_search"
-        app:showAsAction="ifRoom|withText" />
+        app:showAsAction="always|withText"
+
+        app:actionViewClass="androidx.appcompat.widget.SearchView" />
     <item
         android:id="@+id/action_share_app"
         android:icon="@drawable/ic_share_24dp"
         android:title="@string/menu_share_app_link"
-        app:showAsAction="always|withText" />
+        app:showAsAction="ifRoom|withText" />
 
 </menu>

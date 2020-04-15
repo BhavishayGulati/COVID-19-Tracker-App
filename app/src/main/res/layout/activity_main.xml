@@ -6,10 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/pastelBlue"
     android:paddingTop="0dp">
-<!--    <Button-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:id="@+id/button"/>-->
+
 
     <include
         android:id="@+id/toolbar"

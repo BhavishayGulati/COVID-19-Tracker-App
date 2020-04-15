@@ -29,15 +29,7 @@ class NewsActivity : AppCompatActivity() {
 
         tablayout_id.setupWithViewPager(viewpager_id)
 
-        viewModel.isLoading.observe(this, Observer { isLoading ->
-            if (!isLoading){
-                viewModel.getCountriesList(this)
-                var totalCases= viewModel.worldTotalStats.totalCases
-                Log.e("Api response",totalCases)
-            }else{
-                Log.e("Api respone","No result")
-            }
-        })
+
     }
 }
 

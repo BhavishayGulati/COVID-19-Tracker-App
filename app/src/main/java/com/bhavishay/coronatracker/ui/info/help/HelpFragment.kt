@@ -1,5 +1,7 @@
 package com.bhavishay.coronatracker.ui.info.help
 
+import android.app.Activity
+import android.app.Application
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -8,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.bhavishay.coronatracker.R
+import com.google.android.gms.common.wrappers.Wrappers.packageManager
 import kotlinx.android.synthetic.main.help_fragment.*
 
 class HelpFragment : Fragment() {
@@ -23,7 +26,7 @@ class HelpFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        var view = inflater.inflate(R.layout.help_fragment, container, false)
+        val view = inflater.inflate(R.layout.help_fragment, container, false)
 
         return view
     }
@@ -33,9 +36,11 @@ class HelpFragment : Fragment() {
         val intent = Intent(Intent.ACTION_VIEW)
 
         helpline_no.setOnClickListener {
-            val phone = Intent(Intent.ACTION_CALL)
-            phone.data = Uri.parse("tel:"+911123978046)
-            startActivity(phone)
+            val intent = Intent(Intent.ACTION_DIAL).apply {
+                val phoneNumber =  "911123978046"
+                data = Uri.parse("tel:$phoneNumber")
+            }
+            startActivity(intent)
         }
 
         helpline_message.setOnClickListener{

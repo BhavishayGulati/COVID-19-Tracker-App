@@ -1,10 +1,9 @@
 package com.bhavishay.coronatracker.ui.home
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -28,7 +27,25 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
+        setHasOptionsMenu(true)
         return inflater.inflate(R.layout.home_fragment, container, false)
+    }
+
+     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.top_menu,menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item!!.itemId){
+                R.id.action_search_app ->{
+                val shareIntent = Intent(Intent.ACTION_SEND)
+                    shareIntent.setType("text/plain")
+                    .putExtra(Intent.EXTRA_TEXT,"This is the App link")
+                    startActivity(shareIntent)
+                }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -48,6 +65,8 @@ class HomeFragment : Fragment() {
                     .addToBackStack(null)
                     .commit()
             }
+
+
 
         //setting liveData observers
         viewModel.totalCases.observe(viewLifecycleOwner, Observer {totalCases ->

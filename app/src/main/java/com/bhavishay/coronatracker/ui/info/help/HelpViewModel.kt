@@ -10,6 +10,13 @@ import androidx.lifecycle.ViewModel
 
 class HelpViewModel (var application:Application): ViewModel() {
 
+     fun getShareIntent(): Intent{
+
+        val shareIntent = Intent(Intent.ACTION_SEND)
+        shareIntent.setType("text/plain")
+            .putExtra(Intent.EXTRA_TEXT,"This is the App link")
+        return shareIntent
+    }
 //    fun startWhatsapp(number: String,context: Context) : Intent?{
 //        val intent = Intent(Intent.ACTION_VIEW)
 //        intent.setPackage("com.whatsapp")

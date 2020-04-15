@@ -5,7 +5,7 @@
     <string name="title_news">News</string>
     <string name="confirmed">Confirmed</string>
     <string name="cured">Cured</string>
-    <string name="dead">Dead</string>
+    <string name="dead">Deceased</string>
     <string name="suspected">Suspected</string>
     <string name="mortality_rate">Mortality Rate : </string>
     <string name="lastupdate">Latest update</string>
