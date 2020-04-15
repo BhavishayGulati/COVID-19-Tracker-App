@@ -31,9 +31,6 @@ class CountryListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this).get(CountryListViewModel::class.java)
 
-        itemsswipetorefresh.setOnRefreshListener {
-            viewModel.getCountriesList(context!!)
-        }
 
         viewModel.isLoading.observe(viewLifecycleOwner, Observer {
             itemsswipetorefresh.isRefreshing = it
@@ -47,11 +44,11 @@ class CountryListFragment : Fragment() {
             countryRecyclerView.adapter = CountryListAdapter(list)
         })
 
-
+        viewModel.getCountriesList(context!!)
     }
 
     override fun onResume() {
-        viewModel.getCountriesList(context!!)
+
         super.onResume()
     }
 }
