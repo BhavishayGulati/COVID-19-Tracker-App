@@ -3,6 +3,8 @@ package com.bhavishay.coronatracker.activities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuInflater
+import android.widget.PopupMenu
 import com.bhavishay.coronatracker.R
 import com.bhavishay.coronatracker.models.data.WorldStatsResponse
 import com.bhavishay.coronatracker.repository.WorldStatsRepository
@@ -26,6 +28,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
+
+
         val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { menuItem ->
             when(menuItem.itemId){
                 R.id.nav_home ->{

@@ -14,20 +14,14 @@ import kotlinx.coroutines.withContext
 import java.io.IOException
 
 
-class   HomeViewModel : ViewModel() {
+class HomeViewModel : ViewModel() {
     val totalCases = MutableLiveData<String>()
     val totalDeaths = MutableLiveData<String>()
     val totalRecovered = MutableLiveData<String>()
     val lastUpdatedTime = MutableLiveData<String>()
-    lateinit var isLoading : MutableLiveData<Boolean>
     val hasError = MutableLiveData<Boolean>()
     var errorMessage = ""
-
-
-    init {
-
-    }
-
+    init { }
     fun getWorldStats(worldStatsRepository: WorldStatsRepository) {
         try {
             viewModelScope.launch(Dispatchers.IO) {
@@ -43,12 +37,9 @@ class   HomeViewModel : ViewModel() {
                 }
             }
         } catch (e: IOException) {
-
             handleRequestError(e.localizedMessage!!)
-
         }
     }
-
     private fun handleRequestData(worldTotalStats: WorldTotalStats) {
         totalCases.value = worldTotalStats.totalCases
         totalDeaths.value = worldTotalStats.totalDeaths
