@@ -46,6 +46,7 @@ class StatesPage : Fragment() {
             txt_recovered.text = totalRecovered
         })
 
+
         viewModel.getStatesStat(IndiaStatsRepository(IndiaStatsDatabase.getInstance(context!!),
             StateStatsDatabase.getInstance(context!!)))
     }
