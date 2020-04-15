@@ -26,7 +26,6 @@ class NewsActivity : AppCompatActivity() {
 
         val fragmentAdapter = ViewPagerAdapter(supportFragmentManager)
         viewpager_id.adapter = fragmentAdapter
-
         tablayout_id.setupWithViewPager(viewpager_id)
 
 

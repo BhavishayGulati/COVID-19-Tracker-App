@@ -17,6 +17,7 @@ import com.bhavishay.coronatracker.ui.home.HomeFragment
 import com.bhavishay.coronatracker.ui.info.help.HelpFragment
 import com.bhavishay.coronatracker.ui.info.precautions.PrecautionsFragment
 import com.bhavishay.coronatracker.ui.news.NewsFragment
+import com.bhavishay.coronatracker.ui.states.StatesPage
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.home_fragment.*
@@ -41,7 +42,7 @@ class MainActivity : AppCompatActivity() {
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.nav_stats ->{
-                    val fragment = CountryListFragment()
+                    val fragment = StatesPage()
                     supportFragmentManager.beginTransaction().replace(R.id.container,fragment)
                         .commit()
                     return@OnNavigationItemSelectedListener true

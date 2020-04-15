@@ -13,7 +13,6 @@ import kotlinx.coroutines.withContext
 import java.io.IOException
 
 class StatesPageViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
     val totalCases = MutableLiveData<String>()
     val totalDeaths = MutableLiveData<String>()
     val totalRecovered = MutableLiveData<String>()
