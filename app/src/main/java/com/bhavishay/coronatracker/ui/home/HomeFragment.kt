@@ -7,13 +7,14 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.bhavishay.coronatracker.R
 import com.bhavishay.coronatracker.helpers.TimeHelper
 import com.bhavishay.coronatracker.repository.WorldStatsRepository
 import com.bhavishay.coronatracker.repository.database.CountryStatsDatabase
 import com.bhavishay.coronatracker.repository.database.WorldStatsDatabase
-import com.bhavishay.coronatracker.ui.countryList.CountryListFragment
+import com.bhavishay.coronatracker.ui.countryList.CountryListAdapter
 import com.bhavishay.coronatracker.ui.info.help.HelpFragment
 import com.bhavishay.coronatracker.ui.info.precautions.PrecautionsFragment
 import kotlinx.android.synthetic.main.home_fragment.*
@@ -22,7 +23,9 @@ import java.util.*
 
 class HomeFragment : Fragment() {
 
-    lateinit var viewModel: HomeViewModel
+    private lateinit var viewModel: HomeViewModel
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -38,7 +41,7 @@ class HomeFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item!!.itemId){
+        when(item.itemId){
                 R.id.action_search_app ->{
                 val shareIntent = Intent(Intent.ACTION_SEND)
                     shareIntent.setType("text/plain")
@@ -67,9 +70,6 @@ class HomeFragment : Fragment() {
                     .commit()
             }
 
-        val fragment = CountryListFragment()
-        activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.country_list,fragment)?.commit()
-
 
 
         //setting liveData observers
@@ -93,15 +93,28 @@ class HomeFragment : Fragment() {
             tv_update_date.text =  "Updated ${TimeHelper.getTimeAgo(date.time)}"
         })
 
+        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.isNestedScrollingEnabled = true
+
+        viewModel.countriesList.observe(viewLifecycleOwner, Observer { list ->
+
+            recyclerView.adapter = CountryListAdapter(list)
+        })
+
         //requesting world stats data
-        viewModel.getWorldStats(WorldStatsRepository(
-            WorldStatsDatabase.getInstance(context!!),
-            CountryStatsDatabase.getInstance(context!!)
-        ))
+
 
 
 
         }
+
+    override fun onResume() {
+        viewModel.getWorldStats(WorldStatsRepository(
+            WorldStatsDatabase.getInstance(context!!),
+            CountryStatsDatabase.getInstance(context!!)
+        ))
+        super.onResume()
+    }
     }
 
 
