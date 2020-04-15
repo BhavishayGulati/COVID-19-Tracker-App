@@ -14,7 +14,7 @@ private const val DAY_MILLIS = 24 * HOUR_MILLIS
 class TimeHelper {
     companion object {
         @SuppressLint("StringFormatMatches")
-        fun getTimeAgo(context: Context?, time: Long): String? {
+        fun getTimeAgo(time: Long): String? {
             var time = time
             if (time < 1000000000000L) {
                 time *= 1000
@@ -25,19 +25,27 @@ class TimeHelper {
             }
             val diff = now - time
             return if (diff < MINUTE_MILLIS) {
-                context?.resources?.getString(R.string.justnow)
+//                context?.resources?.getString(R.string.justnow)
+                "just now"
             } else if (diff < 2 * MINUTE_MILLIS) {
-                context?.resources?.getString(R.string.aminuteago)
+//                context?.resources?.getString(R.string.aminuteago)
+                "a minute ago"
             } else if (diff < 50 * MINUTE_MILLIS) {
-                context?.resources?.getString(R.string.xminutesago, diff / MINUTE_MILLIS)
+//                context?.resources?.getString(R.string.xminutesago, diff / MINUTE_MILLIS)
+                "${diff / MINUTE_MILLIS} minutes ago"
             } else if (diff < 90 * MINUTE_MILLIS) {
-                context?.resources?.getString(R.string.anhourago)
+//                context?.resources?.getString(R.string.anhourago)
+                "an hour ago"
             } else if (diff < 24 * HOUR_MILLIS) {
-                context?.resources?.getString(R.string.xhoursago, diff / HOUR_MILLIS)
+//                context?.resources?.getString(R.string.xhoursago, diff / HOUR_MILLIS)
+                "${diff / HOUR_MILLIS} hours ago"
             } else if (diff < 48 * HOUR_MILLIS) {
-                context?.resources?.getString(R.string.yesterday)
+//                context?.resources?.getString(R.string.yesterday)
+                "yesterday"
             } else {
-                context?.resources?.getString(R.string.xdaysago, diff / DAY_MILLIS)
+//                context?.resources?.getString(R.string.xdaysago, diff / DAY_MILLIS)
+                "${diff / DAY_MILLIS
+                } days ago"
             }
         }
     }

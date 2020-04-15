@@ -185,9 +185,9 @@
         tools:text="Updated on 12/04/2020" />
 
 
-    <include
+    <FrameLayout
         android:id="@+id/country_list"
-        layout="@layout/country_list_fragment"
+
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="10dp"
@@ -195,7 +195,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" >
+
+    </FrameLayout>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/nav_precautions"

@@ -24,9 +24,9 @@ class NewsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_news)
         viewModel =  ViewModelProviders.of(this).get(CountryListViewModel::class.java)
 
-        val fragmentAdapter = ViewPagerAdapter(supportFragmentManager)
-        viewpager_id.adapter = fragmentAdapter
-        tablayout_id.setupWithViewPager(viewpager_id)
+//        val fragmentAdapter = ViewPagerAdapter(supportFragmentManager)
+//        viewpager_id.adapter = fragmentAdapter
+//        tablayout_id.setupWithViewPager(viewpager_id)
 
 
     }

@@ -13,6 +13,7 @@ import com.bhavishay.coronatracker.helpers.TimeHelper
 import com.bhavishay.coronatracker.repository.WorldStatsRepository
 import com.bhavishay.coronatracker.repository.database.CountryStatsDatabase
 import com.bhavishay.coronatracker.repository.database.WorldStatsDatabase
+import com.bhavishay.coronatracker.ui.countryList.CountryListFragment
 import com.bhavishay.coronatracker.ui.info.help.HelpFragment
 import com.bhavishay.coronatracker.ui.info.precautions.PrecautionsFragment
 import kotlinx.android.synthetic.main.home_fragment.*
@@ -66,6 +67,9 @@ class HomeFragment : Fragment() {
                     .commit()
             }
 
+        val fragment = CountryListFragment()
+        activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.country_list,fragment)?.commit()
+
 
 
         //setting liveData observers
@@ -86,7 +90,7 @@ class HomeFragment : Fragment() {
             //need to convert to date time object to use time helper class
             val formatter = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH)
             val date = formatter.parse(timeString)
-            tv_update_date.text =  "Updated ${TimeHelper.getTimeAgo(context,date.time)}"
+            tv_update_date.text =  "Updated ${TimeHelper.getTimeAgo(date.time)}"
         })
 
         //requesting world stats data

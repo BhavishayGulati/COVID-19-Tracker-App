@@ -13,27 +13,38 @@ import java.util.*
 import kotlin.collections.HashMap
 
 
-var countries = HashMap<String, Country>()
-class CountryListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.country_list_fragment,
+
+class CountryListAdapter(private val countries:List<Country> ) : RecyclerView.Adapter<CountryViewHolder>(){
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CountryViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.country_item_list,
             parent,false)
         return CountryViewHolder(view)
     }
 
     override fun getItemCount(): Int {
-        return countries.size + 1
+        return countries.size
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        var code = countries.keys.elementAt(position - 1) as String
-        val country = countries[code]
-        holder.itemView.countryConfirmedValue.text = country?.activeCases.toString()
-        holder.itemView.countryDeadValueTextView.text = country?.deaths.toString()
-        holder.itemView.countryCuredValueTextView.text = country?.totalRecovered.toString()
+    override fun onBindViewHolder(holder: CountryViewHolder, position: Int) {
+        val country = countries[position]
+        holder.bindView(country)
     }
 }
 
 class CountryViewHolder(v: View): RecyclerView.ViewHolder(v) {
+    private val activeCasesText = v.countryConfirmedValue
+    private val deathsText = v.countryDeadValueTextView
+    private val recoveredText = v.countryCuredValueTextView
+    private val countryNameText = v.countryTextView
+
+    fun bindView(country:Country){
+        with(country){
+            activeCasesText.text = activeCases
+            deathsText.text = deaths
+            recoveredText.text = totalRecovered
+            countryNameText.text = countryName
+        }
+    }
+
 
 }

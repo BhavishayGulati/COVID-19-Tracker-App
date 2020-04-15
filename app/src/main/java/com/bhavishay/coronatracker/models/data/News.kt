@@ -1,6 +1,9 @@
 package com.bhavishay.coronatracker.models.data
 
+import com.bhavishay.coronatracker.helpers.TimeHelper
 import com.squareup.moshi.Json
+import java.text.SimpleDateFormat
+import java.util.*
 
 data class NewsApiResponse(
     @Json(name = "status")val status:String,
@@ -21,6 +24,12 @@ data class NewsItem(
     @Json(name = "content")val content: String?,
     @Json(name = "source")val source: ArticleSource
 ) {
+    var timeString:String = ""
+    init {
+        val formatter = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.getDefault())
+        formatter.timeZone = TimeZone.getTimeZone("UTC")
+        timeString = TimeHelper.getTimeAgo(formatter.parse(publishedAt!!)?.time!!)!!
+    }
 }
 
 data class ArticleSource(

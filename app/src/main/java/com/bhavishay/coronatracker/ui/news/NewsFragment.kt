@@ -6,8 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.bhavishay.coronatracker.R
+import kotlinx.android.synthetic.main.news_fragment.*
 
 class NewsFragment : Fragment() {
 
@@ -16,6 +20,7 @@ class NewsFragment : Fragment() {
     }
 
     private lateinit var viewModel: NewsViewModel
+    private val newsListAdapter = NewsAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,8 +31,14 @@ class NewsFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(NewsViewModel::class.java)
-        // TODO: Use the ViewModel
+        viewModel = ViewModelProvider(this).get(NewsViewModel::class.java)
+
+        viewModel.getNews().observe(viewLifecycleOwner, Observer {
+            newsListAdapter.submitList(it)
+        })
+
+        newsRecyclerView.layoutManager = LinearLayoutManager(context)
+        newsRecyclerView.adapter = newsListAdapter
     }
 
 }
