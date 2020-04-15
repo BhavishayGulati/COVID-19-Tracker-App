@@ -1,6 +1,7 @@
 package com.bhavishay.coronatracker.ui.news
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.DataSource
@@ -12,7 +13,7 @@ import java.util.*
 
 class NewsViewModel : ViewModel() {
 
-    var newsListLiveData : LiveData<PagedList<NewsItem>>
+    private var newsListLiveData : LiveData<PagedList<NewsItem>>
 
     init {
         val config = PagedList.Config.Builder()

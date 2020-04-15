@@ -1,5 +1,6 @@
 package com.bhavishay.coronatracker.ui.news
 
+import android.opengl.Visibility
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -32,13 +33,19 @@ class NewsFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(NewsViewModel::class.java)
+        newsRecyclerView.visibility = View.GONE
+        progressBar.visibility = View.VISIBLE
 
         viewModel.getNews().observe(viewLifecycleOwner, Observer {
+           progressBar.visibility = View.GONE
+            newsRecyclerView.visibility = View.VISIBLE
             newsListAdapter.submitList(it)
         })
 
         newsRecyclerView.layoutManager = LinearLayoutManager(context)
         newsRecyclerView.adapter = newsListAdapter
     }
+
+
 
 }
