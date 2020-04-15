@@ -6,6 +6,7 @@ import com.bhavishay.coronatracker.models.data.WorldTotalStats
 import com.bhavishay.coronatracker.repository.database.CountryStatsDatabase
 import com.bhavishay.coronatracker.repository.database.WorldStatsDatabase
 import com.bhavishay.coronatracker.repository.network.StatsApi
+import kotlinx.coroutines.delay
 import java.io.IOException
 import java.text.ParseException
 import java.text.SimpleDateFormat
@@ -30,7 +31,7 @@ class WorldStatsRepository(
         return worldTotalStats
     }
 
-    fun getCountriesStatsList():List<Country>?{
+     fun getCountriesStatsList(): List<Country>?{
         return getCountryStatsListFromLocalDatabase()
 
     }
@@ -69,6 +70,8 @@ class WorldStatsRepository(
 
     private fun getCountryStatsListFromLocalDatabase():List<Country>?{
         return countryStatsDatabase.countryStatsDatabaseDao.getAllCountries()
+
+
     }
 
     private fun addCountryStatsToLocalDatabase(countryStats: List<Country>?) {
@@ -89,7 +92,7 @@ class WorldStatsRepository(
                 worldTotalStats?.lastNetworkCallTime = formatter.format(Date())
                 Log.d("timeString"," refreshing ${formatter.format(Date())}")
 
-                    addWorldStatsToLocalDatabase(worldTotalStats)
+                addWorldStatsToLocalDatabase(worldTotalStats)
                 addCountryStatsToLocalDatabase(responseBody?.countriesStats)
 
 
