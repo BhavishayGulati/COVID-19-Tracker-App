@@ -1,5 +1,7 @@
 package com.bhavishay.coronatracker.ui.states
 
+import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -42,7 +44,7 @@ class StatesPageViewModel : ViewModel() {
         }
         catch (e:IOException)
         {
-            e.printStackTrace()
+            Log.e("Tag", e.printStackTrace().toString())
 
         }
     }
