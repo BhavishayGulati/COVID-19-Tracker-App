@@ -49,6 +49,10 @@ class HelpFragment : Fragment() {
             message.setType("vnd.android-dir/mms-sms");
             startActivity(message)
         }
+        mentalhealth_details.setOnClickListener {
+            intent.data = Uri.parse("https://1drv.ms/b/s!Avd5iVsATqWEhzoEVCvv0tOyYywZ?e=buomNV")
+            startActivity(intent)
+        }
 
 
         txt_phone_details.setOnClickListener{
