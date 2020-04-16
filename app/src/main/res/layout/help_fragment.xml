@@ -15,6 +15,7 @@
         android:layout_marginTop="10dp"
         android:text="@string/reporting_illness"
         android:textColor="@color/white"
+        android:layout_centerHorizontal="true"
         android:textSize="30sp"
         android:layout_margin="10dp"
         android:textStyle="bold" />
@@ -27,9 +28,10 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
+        android:gravity="center"
         android:text="@string/illness"
         android:textColor="@color/white"
-        android:textSize="16sp" />
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/helpline_no"
@@ -263,7 +265,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView7"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintEnd_toStartOf="@+id/instagram_imageBtn" app:layout_constraintBottom_toBottomOf="parent"
-            android:src="@drawable/whatsapp"/>
+            android:src="@drawable/ic_whatsapp_ic_icon"/>
 
         <ImageButton
             android:layout_height="60dp"
