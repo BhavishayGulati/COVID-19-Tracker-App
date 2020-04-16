@@ -43,6 +43,17 @@ class StatesPage : Fragment() {
             statesRecyclerView.adapter = StageListAdapter(viewModel.statesList,indiaStats)
         })
 
+        viewModel.isLoading.observe(viewLifecycleOwner, Observer { isLoading ->
+            indiaStatsSwipeToRefresh.isRefreshing = isLoading
+        })
+
+        indiaStatsSwipeToRefresh.setOnRefreshListener {
+            viewModel.getStatesStat(IndiaStatsRepository(
+                IndiaStatsDatabase.getInstance(context!!),
+                StateStatsDatabase.getInstance(context!!)
+            ))
+        }
+
     }
 
     override fun onResume() {
