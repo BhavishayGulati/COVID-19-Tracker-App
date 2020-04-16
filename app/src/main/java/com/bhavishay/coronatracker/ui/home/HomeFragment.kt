@@ -17,10 +17,9 @@ import com.bhavishay.coronatracker.repository.database.WorldStatsDatabase
 import com.bhavishay.coronatracker.ui.countryList.CountryListAdapter
 import com.bhavishay.coronatracker.ui.info.help.HelpFragment
 import com.bhavishay.coronatracker.ui.info.precautions.PrecautionsFragment
-import kotlinx.android.synthetic.main.activity_main.*
+
 import kotlinx.android.synthetic.main.home_fragment.*
-import kotlinx.android.synthetic.main.news_fragment.*
-import kotlinx.android.synthetic.main.states_page_fragment.*
+
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -103,9 +102,8 @@ class HomeFragment : Fragment() {
                 progress_bar.visibility = View.GONE
         })
 
-//        viewModel.mortalityRate.observe(viewLifecycleOwner, Observer { mortalityRate->
-//            mortality_value.text = mortalityRate.toString()
-//
+//        viewModel.mortalityRate.observe(viewLifecycleOwner, Observer {
+//            tv_mortality_rate_value.text = ((viewModel.totalDeaths.toString().toDouble()/viewModel.totalCases.toString().toDouble()) * 100).toString()
 //        })
 
 

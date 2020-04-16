@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <TextView
-                android:id="@+id/countryTextView"
+                android:id="@+id/stateTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 tools:text="India"
@@ -44,11 +44,11 @@
                 android:text="@string/confirmed"
                 android:textColor="#99ffffff"
                 android:textSize="10sp"
-                app:layout_constraintStart_toStartOf="@+id/countryTextView"
-                app:layout_constraintTop_toBottomOf="@+id/countryTextView" />
+                app:layout_constraintStart_toStartOf="@+id/stateTextView"
+                app:layout_constraintTop_toBottomOf="@+id/stateTextView" />
 
             <TextView
-                android:id="@+id/countryConfirmedValue"
+                android:id="@+id/stateConfirmedValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="8446"
@@ -97,7 +97,7 @@
                         android:textSize="9sp" />
 
                     <TextView
-                        android:id="@+id/countryCuredValueTextView"
+                        android:id="@+id/stateCuredValueTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
@@ -132,7 +132,7 @@
                         android:textSize="9sp" />
 
                     <TextView
-                        android:id="@+id/countryDeadValueTextView"
+                        android:id="@+id/stateDeadValueTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"

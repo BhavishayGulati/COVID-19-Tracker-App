@@ -26,16 +26,16 @@ class StageListAdapter(private val states:List<State>): RecyclerView.Adapter<Sta
 }
 
 class StateListViewHolder(v: View) : RecyclerView.ViewHolder(v) {
-    private val activeCasesText = v.countryConfirmedValue
-    private val deathsText = v.countryDeadValueTextView
-    private val RecoveredCases = v.countryCuredValueTextView
-    private val StateName = v.countryTextView
-    fun bindView(country: State) {
-        with(country) {
+    private val activeCasesText = v.stateConfirmedValue
+    private val deathsText = v.stateDeadValueTextView
+    private val recovered_Cases = v.stateCuredValueTextView
+    private val state_Name = v.stateTextView
+    fun bindView(state: State) {
+        with(state) {
             activeCasesText.text = activeCases
             deathsText.text = deaths
-            StateName.text = stateName
-            RecoveredCases.text = recoveredCases
+            state_Name.text = stateName
+            recovered_Cases.text = recoveredCases
         }
     }
 }

@@ -9,8 +9,6 @@ import com.bhavishay.coronatracker.models.data.Country
 import kotlinx.android.synthetic.main.country_item_list.view.*
 
 
-import java.util.*
-import kotlin.collections.HashMap
 
 
 
@@ -32,10 +30,10 @@ class CountryListAdapter(private val countries:List<Country> ) : RecyclerView.Ad
 }
 
 class CountryViewHolder(v: View): RecyclerView.ViewHolder(v) {
-    private val activeCasesText = v.countryConfirmedValue
-    private val deathsText = v.countryDeadValueTextView
-    private val recoveredText = v.countryCuredValueTextView
-    private val countryNameText = v.countryTextView
+    private val activeCasesText = v.stateConfirmedValue
+    private val deathsText = v.stateDeadValueTextView
+    private val recoveredText = v.stateCuredValueTextView
+    private val countryNameText = v.stateTextView
 
     fun bindView(country:Country){
         with(country){

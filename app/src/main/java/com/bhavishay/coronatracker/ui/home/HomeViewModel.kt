@@ -1,5 +1,6 @@
 package com.bhavishay.coronatracker.ui.home
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -23,7 +24,7 @@ class HomeViewModel : ViewModel() {
     val hasError = MutableLiveData<Boolean>()
     var isLoading = MutableLiveData<Boolean>()
     var countriesList = MutableLiveData<List<Country>>()
-//    var mortalityRate = MutableLiveData<Double>()
+//    lateinit var mortalityRate : LiveData<Double>
 
     var errorMessage = ""
     init {
@@ -53,7 +54,7 @@ class HomeViewModel : ViewModel() {
         totalDeaths.value = worldTotalStats.totalDeaths
         totalRecovered.value = worldTotalStats.totalRecovered
         lastUpdatedTime.value = worldTotalStats.statsTakenAt
-        // mortalityRate.value = (totalDeaths.toString().toDouble()/totalCases.toString().toDouble()) * 100
+
         this.countriesList.value = countriesList
         isLoading.value = true
     }

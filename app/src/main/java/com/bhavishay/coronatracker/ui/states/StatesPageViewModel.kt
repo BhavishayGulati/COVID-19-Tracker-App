@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.bhavishay.coronatracker.models.data.IndiaTotalStats
+import com.bhavishay.coronatracker.models.data.State
 import com.bhavishay.coronatracker.repository.IndiaStatsRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -18,7 +19,10 @@ class StatesPageViewModel : ViewModel() {
     val totalRecovered = MutableLiveData<String>()
     val lastUpdatedTime = MutableLiveData<String>()
     val hasError = MutableLiveData<Boolean>()
+    var statesList = MutableLiveData<List<State>>()
     var errorMessage = ""
+
+
     fun getStatesStat(indiaStatsRepository: IndiaStatsRepository)
     {
         try {
@@ -27,9 +31,10 @@ class StatesPageViewModel : ViewModel() {
                 val indiaStats = indiaStatsRepository.getIndiaStats()
                 if (indiaStats !=null)
                 {
+                    val statesListResponse = indiaStatsRepository.getStatesStatsList() ?: listOf<State>()
                     withContext(Dispatchers.Main)
                     {
-                        handleRequestData(indiaStats)
+                        handleRequestData(indiaStats,statesListResponse)
                     }
                 }
                 else
@@ -55,12 +60,13 @@ class StatesPageViewModel : ViewModel() {
 
     }
 
-    private fun handleRequestData(indiaStats: IndiaTotalStats)
+    private fun handleRequestData(indiaStats: IndiaTotalStats, statesList : List<State>)
     {
         totalCases.value = indiaStats.activeCases
         totalDeaths.value = indiaStats.deaths
         totalRecovered.value = indiaStats.recoveredCases
         lastUpdatedTime.value = indiaStats.lastUpdatedTime
+        this.statesList.value = statesList
     }
 
 }
