@@ -14,12 +14,9 @@ import kotlinx.coroutines.withContext
 import java.io.IOException
 
 class StatesPageViewModel : ViewModel() {
-    val totalCases = MutableLiveData<String>()
-    val totalDeaths = MutableLiveData<String>()
-    val totalRecovered = MutableLiveData<String>()
-    val lastUpdatedTime = MutableLiveData<String>()
+    val indiaTotalStats = MutableLiveData<IndiaTotalStats>()
     val hasError = MutableLiveData<Boolean>()
-    var statesList = MutableLiveData<List<State>>()
+    var statesList = ArrayList<State>()
     var errorMessage = ""
 
 
@@ -62,11 +59,8 @@ class StatesPageViewModel : ViewModel() {
 
     private fun handleRequestData(indiaStats: IndiaTotalStats, statesList : List<State>)
     {
-        totalCases.value = indiaStats.activeCases
-        totalDeaths.value = indiaStats.deaths
-        totalRecovered.value = indiaStats.recoveredCases
-        lastUpdatedTime.value = indiaStats.lastUpdatedTime
-        this.statesList.value = statesList
+        this.statesList = ArrayList(statesList)
+        indiaTotalStats.value = indiaStats
     }
 
 }

@@ -13,8 +13,8 @@ import kotlinx.android.synthetic.main.item_world_stats.view.*
 import java.text.SimpleDateFormat
 import java.util.*
 
-val TYPE_WORLD_STATS_ITEM = 1
-val TYPE_COUNTRY_LIST_ITEM = 2
+const val TYPE_WORLD_STATS_ITEM = 1
+const val TYPE_COUNTRY_LIST_ITEM = 2
 class CountryListAdapter(private val countries:List<Country>, private val worldTotalStats: WorldTotalStats) : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
 

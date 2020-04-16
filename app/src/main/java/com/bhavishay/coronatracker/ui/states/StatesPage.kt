@@ -33,36 +33,15 @@ class StatesPage : Fragment() {
 
     }
 
-    @SuppressLint("ResourceType")
-    override fun onCreateContextMenu(
-        menu: ContextMenu,
-        v: View,
-        menuInfo: ContextMenu.ContextMenuInfo?
-    ) {
-        val fragment = StatesPage()
-        activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.state_list, fragment)
-            ?.commit()
-        super.onCreateContextMenu(menu, v, menuInfo)
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.totalCases.observe(viewLifecycleOwner, Observer { totalCases ->
-            txt_cases.text = totalCases
-        })
 
-        viewModel.totalDeaths.observe(viewLifecycleOwner, Observer {deaths ->
-            txt_deaths.text = deaths
-        })
-
-        viewModel.totalRecovered.observe(viewLifecycleOwner, Observer {cured->
-            txt_recovered.text = cured
-        })
         statesRecyclerView.layoutManager = LinearLayoutManager(context)
 
-        viewModel.statesList.observe(viewLifecycleOwner, Observer { list->
-            statesRecyclerView.adapter = StageListAdapter(list)
+        viewModel.indiaTotalStats.observe(viewLifecycleOwner, Observer { indiaStats->
+
+            statesRecyclerView.adapter = StageListAdapter(viewModel.statesList,indiaStats)
         })
 
     }
