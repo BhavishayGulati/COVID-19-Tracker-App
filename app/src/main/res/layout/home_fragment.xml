@@ -1,193 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:background="@color/pastelBlue">
 
-
-
-    <androidx.core.widget.NestedScrollView
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeToRefresh"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/pastelBlue">
+        android:layout_height="wrap_content">
 
-        <RelativeLayout
-            android:id="@+id/container"
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/pastelBlue">
+            android:layout_height="wrap_content"
 
-            <LinearLayout
-                android:id="@+id/charts"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:gravity="center"
-                android:orientation="horizontal">
+            android:layout_below="@id/tv_mortality_rate_value"
+            android:layout_marginTop="0dp"
 
-                <com.bhavishay.coronatracker.charts.SummaryPieChart
-                    android:id="@+id/summary_pie_chart"
-                    android:layout_width="0dp"
-                    android:layout_height="200dp"
-                    android:layout_margin="20dp"
-                    android:layout_weight="1">
+            tools:listitem="@layout/country_item_list" />
 
 
-                </com.bhavishay.coronatracker.charts.SummaryPieChart>
-
-                <LinearLayout
-                    android:id="@+id/stats"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_margin="5dp"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_horizontal"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/label_total_confirmed"
-                            android:textColor="@color/pastelRed"
-                            android:textSize="20sp" />
-
-                        <FrameLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-
-                            <TextView
-                                android:id="@+id/text_confirmed_cases"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:textColor="@color/pastelRed"
-                                android:textSize="36sp"
-                                tools:text="1,776,157" />
-
-                        </FrameLayout>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="@string/label_total_deaths"
-                            android:textColor="@color/colorTextSecondary"
-                            android:textSize="16sp" />
-
-
-                        <FrameLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-
-                            <TextView
-                                android:id="@+id/text_deceased_cases"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:textColor="@color/colorTextSecondary"
-                                android:textSize="32sp"
-                                tools:text="108,804" />
-
-                        </FrameLayout>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="@string/label_total_recovered"
-                            android:textColor="@color/colorTextPrimaryGreen"
-                            android:textSize="18sp" />
-
-
-                        <FrameLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-
-
-                            <TextView
-                                android:id="@+id/text_recovered_cases"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:textColor="@color/colorTextPrimaryGreen"
-                                android:textSize="36sp"
-                                tools:text="402,903" />
-
-                        </FrameLayout>
-                    </LinearLayout>
-                </LinearLayout>
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/charts"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:text="@string/mortality_rate"
-                android:textColor="@android:color/holo_red_light"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/tv_mortality_rate_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/charts"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="10dp"
-                android:layout_toEndOf="@id/textView"
-                android:textColor="@android:color/holo_red_light"
-                android:textSize="20sp"
-
-                tools:text="5%" />
-
-            <TextView
-                android:id="@+id/tv_update_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/charts"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="10dp"
-                android:gravity="center"
-                android:textColor="@color/colorTextSecondary"
-                android:textSize="12sp"
-                tools:text="Updated on 12/04/2020" />
-
-            <ProgressBar
-                android:id="@+id/progress_bar"
-                android:visibility="gone"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_above="@+id/recyclerView"
-                android:layout_centerHorizontal="true"/>
-
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tv_mortality_rate_value"
-                android:layout_marginTop="0dp"
-                android:padding="10dp"
-                tools:listitem="@layout/country_item_list" />
-
-
-        </RelativeLayout>
-
-
-    </androidx.core.widget.NestedScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <LinearLayout
         android:layout_width="match_parent"

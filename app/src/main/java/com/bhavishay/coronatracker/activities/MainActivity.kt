@@ -3,6 +3,8 @@ package com.bhavishay.coronatracker.activities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import androidx.viewpager.widget.ViewPager
+import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import com.bhavishay.coronatracker.R
 import com.bhavishay.coronatracker.ui.home.HomeFragment
 import com.bhavishay.coronatracker.ui.news.NewsFragment
@@ -23,6 +25,30 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         viewPager.adapter = mViewPagerAdapter
         viewPager.offscreenPageLimit = 3
         title = "Corona Virus Tracker"
+
+       viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener{
+           override fun onPageScrollStateChanged(state: Int) {
+
+           }
+
+           override fun onPageScrolled(
+               position: Int,
+               positionOffset: Float,
+               positionOffsetPixels: Int
+           ) {
+
+           }
+
+           override fun onPageSelected(position: Int) {
+             nav_view.selectedItemId =  when(position){
+                   0 -> R.id.nav_home
+                     1 -> R.id.stats
+                 2 -> R.id.nav_news
+                 else -> R.id.nav_home
+             }
+           }
+
+       })
 
         nav_view.setOnNavigationItemSelectedListener(this)
 

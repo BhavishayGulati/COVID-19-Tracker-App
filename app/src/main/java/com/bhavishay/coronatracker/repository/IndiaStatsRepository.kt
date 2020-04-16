@@ -34,12 +34,12 @@ private val stateStatsDatabase: StateStatsDatabase
         return indiaTotalStats
     }
 
-    fun getStatesStatsList():List<State>?{
+    suspend fun getStatesStatsList():List<State>?{
         return getStateStatsListFromLocalDatabase()
 
     }
 
-    fun getStateStats(stateName:String):State?{
+    suspend fun getStateStats(stateName:String):State?{
         return stateStatsDatabase.stateStatsDatabaseDao.getStateStats(stateName)
     }
 
@@ -60,21 +60,21 @@ private val stateStatsDatabase: StateStatsDatabase
         return false
     }
 
-    private fun getIndiaStatsFromLocalDatabase(): IndiaTotalStats? {
+    private suspend fun getIndiaStatsFromLocalDatabase(): IndiaTotalStats? {
         Log.d("ApiResponse","checking cache")
         return indiaStatsDatabase.indiaStatsDatabaseDao.get()
     }
 
-    private fun addIndiaStatsToLocalDatabase(indiaTotalStats: IndiaTotalStats?) {
+    private suspend fun addIndiaStatsToLocalDatabase(indiaTotalStats: IndiaTotalStats?) {
         if (indiaTotalStats != null)
             indiaStatsDatabase.indiaStatsDatabaseDao.insert(indiaTotalStats)
     }
 
-    private fun getStateStatsListFromLocalDatabase():List<State>?{
+    private suspend fun getStateStatsListFromLocalDatabase():List<State>?{
         return stateStatsDatabase.stateStatsDatabaseDao.getAllStates()
     }
 
-    private fun addStateStatsToLocalDatabase(stateStats: List<State>?) {
+    private suspend fun addStateStatsToLocalDatabase(stateStats: List<State>?) {
         stateStats?.forEach { state ->
             stateStatsDatabase.stateStatsDatabaseDao.insert(state)
         }

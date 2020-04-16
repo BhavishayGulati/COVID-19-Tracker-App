@@ -17,15 +17,16 @@ import com.bhavishay.coronatracker.repository.database.WorldStatsDatabase
 import com.bhavishay.coronatracker.ui.countryList.CountryListAdapter
 import com.bhavishay.coronatracker.ui.info.help.HelpFragment
 import com.bhavishay.coronatracker.ui.info.precautions.PrecautionsFragment
-
 import kotlinx.android.synthetic.main.home_fragment.*
-
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import java.text.SimpleDateFormat
 import java.util.*
 
 class HomeFragment : Fragment() {
 
     private lateinit var viewModel: HomeViewModel
+    private lateinit var countryListAdapter: CountryListAdapter
 
 
     override fun onCreateView(
@@ -75,46 +76,30 @@ class HomeFragment : Fragment() {
 
 
         //setting liveData observers
-        viewModel.totalCases.observe(viewLifecycleOwner, Observer {totalCases ->
-            text_confirmed_cases.text = totalCases
-        })
-
-        viewModel.totalDeaths.observe(viewLifecycleOwner, Observer { totalDeaths ->
-            text_deceased_cases.text = totalDeaths
-        })
-
-        viewModel.totalRecovered.observe(viewLifecycleOwner, Observer { totalRecovered ->
-            text_recovered_cases.text = totalRecovered
-        })
-
-        viewModel.lastUpdatedTime.observe(viewLifecycleOwner, Observer { timeString ->
-            //time is in format - yyyy-MM-dd HH:mm:ss
-            //need to convert to date time object to use time helper class
-            val formatter = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH)
-            val date = formatter.parse(timeString)
-            tv_update_date.text =  "Updated ${TimeHelper.getTimeAgo(date.time)}"
-        })
-
-        viewModel.isLoading.observe(viewLifecycleOwner, Observer {isLoading ->
-            if (!isLoading)
-                progress_bar.visibility = View.VISIBLE
-            else
-                progress_bar.visibility = View.GONE
-        })
-
-//        viewModel.mortalityRate.observe(viewLifecycleOwner, Observer {
-//            tv_mortality_rate_value.text = ((viewModel.totalDeaths.toString().toDouble()/viewModel.totalCases.toString().toDouble()) * 100).toString()
-//        })
-
-
         recyclerView.layoutManager = LinearLayoutManager(context)
-        recyclerView.isNestedScrollingEnabled = true
+        viewModel.worldTotalStats.observe(viewLifecycleOwner, Observer { stats ->
+            countryListAdapter = CountryListAdapter(viewModel.countriesList,stats)
 
-        viewModel.countriesList.observe(viewLifecycleOwner, Observer { list ->
-
-            recyclerView.adapter = CountryListAdapter(list)
+            recyclerView.adapter = countryListAdapter
         })
-        //requesting world stats data
+
+
+        viewModel.isLoading.observe(viewLifecycleOwner, Observer { isLoading ->
+            swipeToRefresh.isRefreshing = isLoading
+        })
+
+        swipeToRefresh.setOnRefreshListener {
+            viewModel.getWorldStats(WorldStatsRepository(
+                WorldStatsDatabase.getInstance(context!!),
+                CountryStatsDatabase.getInstance(context!!)
+            ))
+        }
+
+
+
+
+
+
         }
 
     override fun onResume() {
@@ -124,7 +109,6 @@ class HomeFragment : Fragment() {
         ))
         super.onResume()
     }
-
     }
 
 

@@ -7,8 +7,8 @@ import com.bhavishay.coronatracker.models.data.WorldTotalStats
 interface WorldStatsDatabaseDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(stats:WorldTotalStats)
+    suspend fun insert(stats:WorldTotalStats)
 
     @Query("SELECT * from world_stats WHERE id = :id")
-    fun get(id:Int = 0):WorldTotalStats?
+    suspend fun get(id:Int = 0):WorldTotalStats?
 }

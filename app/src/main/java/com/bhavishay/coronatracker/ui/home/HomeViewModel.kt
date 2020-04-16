@@ -1,6 +1,6 @@
 package com.bhavishay.coronatracker.ui.home
 
-import androidx.lifecycle.LiveData
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -11,52 +11,58 @@ import com.bhavishay.coronatracker.models.data.WorldTotalStats
 import com.bhavishay.coronatracker.repository.WorldStatsRepository
 import com.bhavishay.coronatracker.ui.info.precautions.PrecautionsFragment
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.io.IOException
 
 
 class HomeViewModel : ViewModel() {
-    val totalCases = MutableLiveData<String>()
-    val totalDeaths = MutableLiveData<String>()
-    val totalRecovered = MutableLiveData<String>()
-    val lastUpdatedTime = MutableLiveData<String>()
+    val worldTotalStats = MutableLiveData<WorldTotalStats>()
     val hasError = MutableLiveData<Boolean>()
+    var countriesList = ArrayList<Country>()
     var isLoading = MutableLiveData<Boolean>()
-    var countriesList = MutableLiveData<List<Country>>()
-//    lateinit var mortalityRate : LiveData<Double>
 
     var errorMessage = ""
+
     init {
-        isLoading.value = false
     }
+
+
     fun getWorldStats(worldStatsRepository: WorldStatsRepository) {
-        try {
-            viewModelScope.launch(Dispatchers.IO) {
+        isLoading.value = true
+        viewModelScope.launch(Dispatchers.IO) {
+            try {
+
                 val worldTotalStats = worldStatsRepository.getWorldStats()
                 if (worldTotalStats != null) {
-                    val countriesListResponse = worldStatsRepository.getCountriesStatsList() ?: listOf<Country>()
+                    val countriesListResponse =
+                        worldStatsRepository.getCountriesStatsList() ?: listOf<Country>()
                     withContext(Dispatchers.Main) {
-                        handleRequestData(worldTotalStats,countriesListResponse)
+                        handleRequestData(worldTotalStats, countriesListResponse)
                     }
                 } else {
                     withContext(Dispatchers.Main) {
                         handleRequestError()
                     }
                 }
+
+            } catch (e: IOException) {
+                withContext(Dispatchers.Main) {
+                    handleRequestError(e.localizedMessage!!)
+                }
+            } finally {
+                withContext(Dispatchers.Main) {
+                    isLoading.value = false
+                }
             }
-        } catch (e: IOException) {
-            handleRequestError(e.localizedMessage!!)
         }
     }
-    private fun handleRequestData(worldTotalStats: WorldTotalStats, countriesList:List<Country>) {
-        totalCases.value = worldTotalStats.totalCases
-        totalDeaths.value = worldTotalStats.totalDeaths
-        totalRecovered.value = worldTotalStats.totalRecovered
-        lastUpdatedTime.value = worldTotalStats.statsTakenAt
 
-        this.countriesList.value = countriesList
-        isLoading.value = true
+    private fun handleRequestData(worldTotalStats: WorldTotalStats, countriesList: List<Country>) {
+        this.countriesList = ArrayList(countriesList)
+        this.worldTotalStats.value = worldTotalStats
+
     }
 
     private fun handleRequestError(errorMessage: String = "Some Error Occurred") {

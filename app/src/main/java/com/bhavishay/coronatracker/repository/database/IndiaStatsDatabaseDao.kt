@@ -7,8 +7,8 @@ import com.bhavishay.coronatracker.models.data.IndiaTotalStats
 interface IndiaStatsDatabaseDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(stats:IndiaTotalStats)
+    suspend fun insert(stats:IndiaTotalStats)
 
     @Query("SELECT * from india_stats WHERE id =:id")
-    fun get(id:Int = 0):IndiaTotalStats?
+    suspend fun get(id:Int = 0):IndiaTotalStats?
 }

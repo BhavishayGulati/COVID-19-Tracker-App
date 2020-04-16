@@ -7,11 +7,11 @@ import com.bhavishay.coronatracker.models.data.Country
 interface CountryStatsDatabaseDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(countryStats:Country)
+    suspend fun insert(countryStats:Country)
 
     @Query("SELECT * from country_stats_table WHERE countryName = :countryName")
-    fun getCountryStats(countryName:String):Country?
+    suspend fun getCountryStats(countryName:String):Country?
 
     @Query("SELECT * from country_stats_table")
-    fun getAllCountries():List<Country>?
+    suspend fun getAllCountries():List<Country>?
 }

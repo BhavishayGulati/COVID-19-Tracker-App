@@ -6,6 +6,7 @@ import com.bhavishay.coronatracker.models.data.WorldTotalStats
 import com.bhavishay.coronatracker.repository.database.CountryStatsDatabase
 import com.bhavishay.coronatracker.repository.database.WorldStatsDatabase
 import com.bhavishay.coronatracker.repository.network.StatsApi
+import kotlinx.coroutines.delay
 import java.io.IOException
 import java.text.ParseException
 import java.text.SimpleDateFormat
@@ -30,12 +31,14 @@ class WorldStatsRepository(
         return worldTotalStats
     }
 
-    fun getCountriesStatsList():List<Country>?{
-        return getCountryStatsListFromLocalDatabase()
+    suspend fun getCountriesStatsList(): List<Country>? {
+
+        val countriesList = getCountryStatsListFromLocalDatabase()
+        return countriesList
 
     }
 
-    fun getCountryStats(countryName:String):Country?{
+    suspend fun getCountryStats(countryName: String): Country? {
         return countryStatsDatabase.countryStatsDatabaseDao.getCountryStats(countryName)
     }
 
@@ -44,7 +47,7 @@ class WorldStatsRepository(
         val formatter = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH)
         try {
             val date = formatter.parse(timeString)
-            Log.d("timeString"," should refresh ${date?.toString()}")
+            Log.d("timeString", " should refresh ${date?.toString()}")
             val currentDate = Date()
             val diff = currentDate.time - date?.time!!
             val seconds = diff / 1000
@@ -57,21 +60,24 @@ class WorldStatsRepository(
         return false
     }
 
-    private fun getWorldStatsFromLocalDatabase(): WorldTotalStats? {
-        Log.d("ApiResponse","checking cache")
-        return worldStatsDatabase.worldStatsDatabaseDao.get()
+    private suspend fun getWorldStatsFromLocalDatabase(): WorldTotalStats? {
+        Log.d("ApiResponse", "checking cache")
+        val worldStats = worldStatsDatabase.worldStatsDatabaseDao.get()
+        return worldStats
     }
 
-    private fun addWorldStatsToLocalDatabase(worldTotalStats: WorldTotalStats?) {
+    private suspend fun addWorldStatsToLocalDatabase(worldTotalStats: WorldTotalStats?) {
         if (worldTotalStats != null)
             worldStatsDatabase.worldStatsDatabaseDao.insert(worldTotalStats)
     }
 
-    private fun getCountryStatsListFromLocalDatabase():List<Country>?{
-        return countryStatsDatabase.countryStatsDatabaseDao.getAllCountries()
+    private suspend fun getCountryStatsListFromLocalDatabase(): List<Country>? {
+        val countries = countryStatsDatabase.countryStatsDatabaseDao.getAllCountries()
+        return countries
+
     }
 
-    private fun addCountryStatsToLocalDatabase(countryStats: List<Country>?) {
+    private suspend fun addCountryStatsToLocalDatabase(countryStats: List<Country>?) {
         countryStats?.forEach { country ->
             countryStatsDatabase.countryStatsDatabaseDao.insert(country)
         }
@@ -87,7 +93,7 @@ class WorldStatsRepository(
                 val formatter = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH)
                 val worldTotalStats = responseBody?.worldTotalStats
                 worldTotalStats?.lastNetworkCallTime = formatter.format(Date())
-                Log.d("timeString"," refreshing ${formatter.format(Date())}")
+                Log.d("timeString", " refreshing ${formatter.format(Date())}")
 
                 addWorldStatsToLocalDatabase(worldTotalStats)
                 addCountryStatsToLocalDatabase(responseBody?.countriesStats)
