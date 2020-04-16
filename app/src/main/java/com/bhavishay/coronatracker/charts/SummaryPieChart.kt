@@ -9,6 +9,7 @@ import androidx.core.text.bold
 import androidx.core.text.color
 import androidx.core.text.scale
 import com.bhavishay.coronatracker.R
+import com.bhavishay.coronatracker.models.data.Country
 import com.bhavishay.coronatracker.models.data.Summary
 import com.bhavishay.coronatracker.models.data.WorldTotalStats
 import com.github.mikephil.charting.charts.PieChart
@@ -21,10 +22,9 @@ import com.github.mikephil.charting.highlight.Highlight
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener
 
 
-class SummaryPieChart(context: Context, attributes: AttributeSet): PieChart(context, attributes),
-    OnChartValueSelectedListener {
+class SummaryPieChart(context: Context, attributes: AttributeSet): PieChart(context, attributes), OnChartValueSelectedListener{
 
-    fun configure(summary: Summary) {
+    fun configure(summary: Country) {
         this.centerText = ""
         this.setCenterTextSize(20f)
         this.setUsePercentValues(true)
@@ -39,9 +39,9 @@ class SummaryPieChart(context: Context, attributes: AttributeSet): PieChart(cont
         this.description = desc
 
         val entries = ArrayList<PieEntry>()
-        entries.add(PieEntry(summary.confirmed.toFloat(), resources.getString(R.string.confirmed)))
-        entries.add(PieEntry(summary.cured.toFloat(), resources.getString(R.string.cured)))
-        entries.add(PieEntry(summary.dead.toFloat(), resources.getString(R.string.dead)))
+        entries.add(PieEntry(summary.activeCases.toFloat(), resources.getString(R.string.confirmed)))
+        entries.add(PieEntry(summary.totalRecovered.toFloat(), resources.getString(R.string.cured)))
+        entries.add(PieEntry(summary.deaths.toFloat(), resources.getString(R.string.dead)))
 
         val dataSet = PieDataSet(entries, "summary")
         dataSet.setDrawValues(false)

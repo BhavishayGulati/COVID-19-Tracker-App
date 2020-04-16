@@ -30,7 +30,6 @@
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/viewPager"
             android:layout_width="match_parent"
-            android:background="#f3f3f3"
             android:layout_height="wrap_content"/>
 
     </FrameLayout>
@@ -42,8 +41,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@color/pastelBlue"
-        app:itemIconTint="@drawable/bottom_nav_menu_selector"
-        app:itemTextColor="@drawable/bottom_nav_menu_selector"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

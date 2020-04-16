@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import com.bhavishay.coronatracker.R
 import com.bhavishay.coronatracker.ui.home.HomeFragment
 import com.bhavishay.coronatracker.ui.states.StatesPage
 

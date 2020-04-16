@@ -39,7 +39,7 @@ class CountryViewHolder(v: View): RecyclerView.ViewHolder(v) {
 
     fun bindView(country:Country){
         with(country){
-            activeCasesText.text = activeCases
+            activeCasesText.text = cases
             deathsText.text = deaths
             recoveredText.text = totalRecovered
             countryNameText.text = countryName

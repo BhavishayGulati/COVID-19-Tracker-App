@@ -23,7 +23,7 @@ class HomeViewModel : ViewModel() {
     val hasError = MutableLiveData<Boolean>()
     var isLoading = MutableLiveData<Boolean>()
     var countriesList = MutableLiveData<List<Country>>()
-//    var mortalityRate = MutableLiveData<Int>()
+//    var mortalityRate = MutableLiveData<Double>()
 
     var errorMessage = ""
     init {
@@ -53,7 +53,7 @@ class HomeViewModel : ViewModel() {
         totalDeaths.value = worldTotalStats.totalDeaths
         totalRecovered.value = worldTotalStats.totalRecovered
         lastUpdatedTime.value = worldTotalStats.statsTakenAt
-    //    mortalityRate.value = worldTotalStats.totalDeaths.toInt()/worldTotalStats.totalCases.toInt()
+        // mortalityRate.value = (totalDeaths.toString().toDouble()/totalCases.toString().toDouble()) * 100
         this.countriesList.value = countriesList
         isLoading.value = true
     }
