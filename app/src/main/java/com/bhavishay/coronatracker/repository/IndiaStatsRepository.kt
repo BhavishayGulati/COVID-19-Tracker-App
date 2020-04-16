@@ -9,6 +9,7 @@ import com.bhavishay.coronatracker.models.data.State
 import com.bhavishay.coronatracker.repository.database.IndiaStatsDatabase
 import com.bhavishay.coronatracker.repository.database.StateStatsDatabase
 import com.bhavishay.coronatracker.repository.network.StatsApi
+import kotlinx.coroutines.delay
 import java.io.IOException
 import java.text.ParseException
 import java.text.SimpleDateFormat
@@ -61,7 +62,6 @@ private val stateStatsDatabase: StateStatsDatabase
     }
 
     private suspend fun getIndiaStatsFromLocalDatabase(): IndiaTotalStats? {
-        Log.d("ApiResponse","checking cache")
         return indiaStatsDatabase.indiaStatsDatabaseDao.get()
     }
 
@@ -81,8 +81,10 @@ private val stateStatsDatabase: StateStatsDatabase
     }
 
     private suspend fun refreshStateStats():IndiaTotalStats?{
-        Log.d("ApiResponse","refreshing from api")
+
         try {
+            delay(2000)
+            Log.d("ApiResponse","refreshing india stats from api")
             val indiaStatsResponse = StatsApi.retrofitService.getIndiaStats()
             return if(indiaStatsResponse.isSuccessful){
                val responseBody = indiaStatsResponse.body()

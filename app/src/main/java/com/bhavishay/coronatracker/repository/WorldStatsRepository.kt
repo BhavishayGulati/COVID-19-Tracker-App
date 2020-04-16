@@ -53,7 +53,7 @@ class WorldStatsRepository(
             val seconds = diff / 1000
             val minutes = seconds / 60
 
-            return minutes > 60
+            return minutes > 30
         } catch (e: ParseException) {
 
         }
@@ -61,7 +61,6 @@ class WorldStatsRepository(
     }
 
     private suspend fun getWorldStatsFromLocalDatabase(): WorldTotalStats? {
-        Log.d("ApiResponse", "checking cache")
         val worldStats = worldStatsDatabase.worldStatsDatabaseDao.get()
         return worldStats
     }
@@ -84,8 +83,9 @@ class WorldStatsRepository(
     }
 
     private suspend fun refreshWorldStats(): WorldTotalStats? {
-        try {
 
+        try {
+            Log.d("ApiResponse","refreshing world stats from api")
             val worldStatsResponse = StatsApi.retrofitService.getWorldStats()
             return if (worldStatsResponse.isSuccessful) {
                 val responseBody = worldStatsResponse.body()
@@ -101,6 +101,7 @@ class WorldStatsRepository(
 
                 responseBody?.worldTotalStats
             } else {
+                Log.e("ApiResponse",worldStatsResponse.errorBody()?.string())
                 null
             }
         } catch (e: IOException) {

@@ -17,14 +17,17 @@ class StatesPageViewModel : ViewModel() {
     val indiaTotalStats = MutableLiveData<IndiaTotalStats>()
     val hasError = MutableLiveData<Boolean>()
     var statesList = ArrayList<State>()
+    var isLoading = MutableLiveData<Boolean>()
     var errorMessage = ""
 
 
     fun getStatesStat(indiaStatsRepository: IndiaStatsRepository)
     {
+        isLoading.value = true
+        viewModelScope.launch(Dispatchers.IO)
+        {
         try {
-            viewModelScope.launch(Dispatchers.IO)
-            {
+
                 val indiaStats = indiaStatsRepository.getIndiaStats()
                 if (indiaStats !=null)
                 {
@@ -41,12 +44,17 @@ class StatesPageViewModel : ViewModel() {
                         handleRequestError()
                     }
                 }
-            }
+
         }
         catch (e:IOException)
         {
             Log.e("Tag", e.printStackTrace().toString())
 
+        }finally {
+            withContext(Dispatchers.Main){
+                isLoading.value = false
+            }
+        }
         }
     }
 
