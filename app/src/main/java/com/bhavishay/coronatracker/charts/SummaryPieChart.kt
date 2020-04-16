@@ -39,7 +39,7 @@ class SummaryPieChart(context: Context, attributes: AttributeSet): PieChart(cont
         this.description = desc
 
         val entries = ArrayList<PieEntry>()
-        entries.add(PieEntry(summary.totalCases.replace(",","").toFloat(), resources.getString(R.string.confirmed)))
+        entries.add(PieEntry(summary.totalCases.replace(",","").toFloat()-summary.totalDeaths.replace(",","").toFloat()-summary.totalRecovered.replace(",","").toFloat(), resources.getString(R.string.confirmed)))
         entries.add(PieEntry(summary.totalRecovered.replace(",","").toFloat(), resources.getString(R.string.cured)))
         entries.add(PieEntry(summary.totalDeaths.replace(",","").toFloat(), resources.getString(R.string.dead)))
 

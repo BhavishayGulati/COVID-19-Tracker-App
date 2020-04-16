@@ -38,7 +38,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/label_total_confirmed"
-                android:textColor="@color/pastelRed"
+                android:textColor="@color/pastelOrange"
                 android:textSize="20sp" />
 
             <FrameLayout
@@ -58,7 +58,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textColor="@color/pastelRed"
+                    android:textColor="@color/pastelOrange"
                     android:textSize="36sp"
                     tools:text="1,776,157" />
 
@@ -69,7 +69,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="@string/label_total_deaths"
-                android:textColor="@color/colorTextSecondary"
+                android:textColor="@color/pastelRed"
                 android:textSize="16sp" />
 
 
@@ -90,7 +90,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textColor="@color/colorTextSecondary"
+                    android:textColor="@color/pastelRed"
                     android:textSize="32sp"
                     tools:text="108,804" />
 
@@ -101,7 +101,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="@string/label_total_recovered"
-                android:textColor="@color/colorTextPrimaryGreen"
+                android:textColor="@color/pastelGreen"
                 android:textSize="18sp" />
 
 
@@ -122,7 +122,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textColor="@color/colorTextPrimaryGreen"
+                    android:textColor="@color/pastelGreen"
                     android:textSize="36sp"
                     tools:text="402,903" />
 
