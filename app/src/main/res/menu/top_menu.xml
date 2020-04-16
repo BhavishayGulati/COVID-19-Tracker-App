@@ -6,8 +6,7 @@
         android:icon="@drawable/ic_search"
         android:title="@string/menu_search"
         app:showAsAction="always|withText"
-
-        app:actionViewClass="androidx.appcompat.widget.SearchView" />
+        />
     <item
         android:id="@+id/action_share_app"
         android:icon="@drawable/ic_share_24dp"

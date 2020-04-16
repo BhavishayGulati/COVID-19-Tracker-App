@@ -16,10 +16,6 @@ import kotlinx.android.synthetic.main.news_fragment.*
 
 class NewsFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = NewsFragment()
-    }
-
     private lateinit var viewModel: NewsViewModel
     private val newsListAdapter = NewsAdapter()
 

@@ -23,14 +23,6 @@ data class WorldTotalStats(
     @ColumnInfo(name = "total_recovered")
     val totalRecovered: String,
 
-    @Json(name = "new_cases")
-    @ColumnInfo(name = "new_cases")
-    val newCases: String,
-
-    @Json(name = "new_deaths")
-    @ColumnInfo(name = "new_deaths")
-    val newDeaths: String,
-
     @Json(name = "statistic_taken_at")
     @ColumnInfo(name = "statistic_taken_at")
     val statsTakenAt: String,

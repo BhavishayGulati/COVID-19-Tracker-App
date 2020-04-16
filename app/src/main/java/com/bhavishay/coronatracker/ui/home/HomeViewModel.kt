@@ -21,10 +21,14 @@ class HomeViewModel : ViewModel() {
     val totalRecovered = MutableLiveData<String>()
     val lastUpdatedTime = MutableLiveData<String>()
     val hasError = MutableLiveData<Boolean>()
+    var isLoading = MutableLiveData<Boolean>()
     var countriesList = MutableLiveData<List<Country>>()
+//    var mortalityRate = MutableLiveData<Int>()
 
     var errorMessage = ""
-    init { }
+    init {
+        isLoading.value = false
+    }
     fun getWorldStats(worldStatsRepository: WorldStatsRepository) {
         try {
             viewModelScope.launch(Dispatchers.IO) {
@@ -49,7 +53,9 @@ class HomeViewModel : ViewModel() {
         totalDeaths.value = worldTotalStats.totalDeaths
         totalRecovered.value = worldTotalStats.totalRecovered
         lastUpdatedTime.value = worldTotalStats.statsTakenAt
+    //    mortalityRate.value = worldTotalStats.totalDeaths.toInt()/worldTotalStats.totalCases.toInt()
         this.countriesList.value = countriesList
+        isLoading.value = true
     }
 
     private fun handleRequestError(errorMessage: String = "Some Error Occurred") {

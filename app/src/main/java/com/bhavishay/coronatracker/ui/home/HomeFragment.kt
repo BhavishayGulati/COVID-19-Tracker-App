@@ -17,7 +17,10 @@ import com.bhavishay.coronatracker.repository.database.WorldStatsDatabase
 import com.bhavishay.coronatracker.ui.countryList.CountryListAdapter
 import com.bhavishay.coronatracker.ui.info.help.HelpFragment
 import com.bhavishay.coronatracker.ui.info.precautions.PrecautionsFragment
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.home_fragment.*
+import kotlinx.android.synthetic.main.news_fragment.*
+import kotlinx.android.synthetic.main.states_page_fragment.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -93,6 +96,19 @@ class HomeFragment : Fragment() {
             tv_update_date.text =  "Updated ${TimeHelper.getTimeAgo(date.time)}"
         })
 
+        viewModel.isLoading.observe(viewLifecycleOwner, Observer {isLoading ->
+            if (!isLoading)
+                progress_bar.visibility = View.VISIBLE
+            else
+                progress_bar.visibility = View.GONE
+        })
+
+//        viewModel.mortalityRate.observe(viewLifecycleOwner, Observer { mortalityRate->
+//            mortality_value.text = mortalityRate.toString()
+//
+//        })
+
+
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.isNestedScrollingEnabled = true
 
@@ -100,12 +116,7 @@ class HomeFragment : Fragment() {
 
             recyclerView.adapter = CountryListAdapter(list)
         })
-
         //requesting world stats data
-
-
-
-
         }
 
     override fun onResume() {
@@ -115,6 +126,7 @@ class HomeFragment : Fragment() {
         ))
         super.onResume()
     }
+
     }
 
 
