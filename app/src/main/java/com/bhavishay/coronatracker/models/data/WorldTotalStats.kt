@@ -3,8 +3,10 @@ package com.bhavishay.coronatracker.models.data
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.google.firebase.database.IgnoreExtraProperties
 import com.squareup.moshi.Json
 
+@IgnoreExtraProperties
 @Entity(tableName = "world_stats")
 data class WorldTotalStats(
 

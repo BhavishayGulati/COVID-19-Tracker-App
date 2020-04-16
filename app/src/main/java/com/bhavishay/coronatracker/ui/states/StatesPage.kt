@@ -30,7 +30,6 @@ class StatesPage : Fragment() {
     ): View? {
         viewModel = ViewModelProvider(this).get(StatesPageViewModel::class.java)
         return inflater.inflate(R.layout.states_page_fragment, container, false)
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

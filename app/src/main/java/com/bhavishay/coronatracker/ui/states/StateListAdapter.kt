@@ -67,6 +67,7 @@ class IndiaStatsViewHolder(v: View):RecyclerView.ViewHolder(v){
     private val recoveredText = v.txt_recovered
     private val deceasedText = v.txt_deaths
     private val lastUpdatedText = v.update_time
+    private val mortalityRate = v.mortality_value
 
     fun bindView(indiaTotalStats: IndiaTotalStats){
 
@@ -77,6 +78,8 @@ class IndiaStatsViewHolder(v: View):RecyclerView.ViewHolder(v){
             val formatter = SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.ENGLISH)
             val date = formatter.parse(lastUpdatedTime)
             lastUpdatedText.text = "Updated ${TimeHelper.getTimeAgo(date.time)}"
+            mortalityRate.text = ((deaths.replace(",","").toDouble()/confirmedCases.replace(",","").toDouble())*100).toInt().toString() + "%"
+
         }
     }
 }

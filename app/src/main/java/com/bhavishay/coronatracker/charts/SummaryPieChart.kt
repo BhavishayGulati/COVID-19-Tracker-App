@@ -24,7 +24,7 @@ import com.github.mikephil.charting.listener.OnChartValueSelectedListener
 
 class SummaryPieChart(context: Context, attributes: AttributeSet): PieChart(context, attributes), OnChartValueSelectedListener{
 
-    fun configure(summary: Country) {
+    fun configure(summary: WorldTotalStats) {
         this.centerText = ""
         this.setCenterTextSize(20f)
         this.setUsePercentValues(true)
@@ -39,9 +39,9 @@ class SummaryPieChart(context: Context, attributes: AttributeSet): PieChart(cont
         this.description = desc
 
         val entries = ArrayList<PieEntry>()
-        entries.add(PieEntry(summary.activeCases.toFloat(), resources.getString(R.string.confirmed)))
-        entries.add(PieEntry(summary.totalRecovered.toFloat(), resources.getString(R.string.cured)))
-        entries.add(PieEntry(summary.deaths.toFloat(), resources.getString(R.string.dead)))
+        entries.add(PieEntry(summary.totalCases.replace(",","").toFloat(), resources.getString(R.string.confirmed)))
+        entries.add(PieEntry(summary.totalRecovered.replace(",","").toFloat(), resources.getString(R.string.cured)))
+        entries.add(PieEntry(summary.totalDeaths.replace(",","").toFloat(), resources.getString(R.string.dead)))
 
         val dataSet = PieDataSet(entries, "summary")
         dataSet.setDrawValues(false)

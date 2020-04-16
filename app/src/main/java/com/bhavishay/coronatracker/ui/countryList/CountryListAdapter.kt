@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bhavishay.coronatracker.R
+import com.bhavishay.coronatracker.charts.SummaryPieChart
 import com.bhavishay.coronatracker.helpers.TimeHelper
 import com.bhavishay.coronatracker.models.data.Country
 import com.bhavishay.coronatracker.models.data.WorldTotalStats
@@ -18,12 +19,14 @@ const val TYPE_COUNTRY_LIST_ITEM = 2
 class CountryListAdapter(private val countries:List<Country>, private val worldTotalStats: WorldTotalStats) : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
 
-
+   // var summary = Country()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):RecyclerView.ViewHolder {
 
         if (viewType == TYPE_WORLD_STATS_ITEM) {
             val view = LayoutInflater.from(parent.context)
                 .inflate(R.layout.item_world_stats, parent, false)
+//            val summaryPieChart = LayoutInflater.from(parent.context)
+//                .inflate(R.layout.,parent,false)
             return StatsViewHolder(view)
         }
 
@@ -51,7 +54,10 @@ class CountryListAdapter(private val countries:List<Country>, private val worldT
     }
 }
 
+
+
 class CountryViewHolder(v: View): RecyclerView.ViewHolder(v) {
+
     private val activeCasesText = v.stateConfirmedValue
     private val deathsText = v.stateDeadValueTextView
     private val recoveredText = v.stateCuredValueTextView
@@ -63,6 +69,7 @@ class CountryViewHolder(v: View): RecyclerView.ViewHolder(v) {
             deathsText.text = deaths
             recoveredText.text = totalRecovered
             countryNameText.text = countryName
+
         }
     }
 
@@ -74,6 +81,9 @@ class StatsViewHolder(v:View):RecyclerView.ViewHolder(v){
     private val deceasedText = v.text_deceased_cases
     private val recoveredCasesText = v.text_recovered_cases
     private val lastUpdateText = v.tv_update_date
+    private val mortalityRate = v.tv_mortality_rate_value
+    private val pieChart = v.summary_pie_chart
+
 
     fun bindView(worldTotalStats: WorldTotalStats){
 
@@ -81,9 +91,12 @@ class StatsViewHolder(v:View):RecyclerView.ViewHolder(v){
             confirmedCasesText.text = totalCases
             deceasedText.text = totalDeaths
             recoveredCasesText.text = totalRecovered
+           mortalityRate.text = ((totalDeaths.replace(",","").toDouble()/totalCases.replace(",","").toDouble())*100).toInt().toString() + "%"
             val formatter = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH)
             val date = formatter.parse(statsTakenAt)
             lastUpdateText.text = "Updated ${TimeHelper.getTimeAgo(date.time)}"
+            pieChart.configure(worldTotalStats)
+
         }
     }
 }

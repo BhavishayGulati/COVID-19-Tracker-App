@@ -17,22 +17,7 @@ class HelpViewModel (var application:Application): ViewModel() {
             .putExtra(Intent.EXTRA_TEXT,"This is the App link")
         return shareIntent
     }
-//    fun startWhatsapp(number: String,context: Context) : Intent?{
-//        val intent = Intent(Intent.ACTION_VIEW)
-//        intent.setPackage("com.whatsapp")
-//        val data: String = if(number[0] == '+'){
-//            number.substring(1)
-//        }else if(number.length == 10){
-//            "91" + number
-//        }else{
-//            number
-//        }
-//        intent.data = Uri.parse("https://wa.me/$data")
-//        if(application.packageManager.resolveActivity(intent,0)!=null){
-//            return intent
-//        }
-//        return null
-//    }
+
 }
 
 
