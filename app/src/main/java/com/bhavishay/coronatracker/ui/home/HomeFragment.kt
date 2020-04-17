@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.bhavishay.coronatracker.R
+import com.bhavishay.coronatracker.activities.SearchActivity
 import com.bhavishay.coronatracker.helpers.TimeHelper
 import com.bhavishay.coronatracker.repository.WorldStatsRepository
 import com.bhavishay.coronatracker.repository.database.CountryStatsDatabase
@@ -18,10 +19,7 @@ import com.bhavishay.coronatracker.ui.countryList.CountryListAdapter
 import com.bhavishay.coronatracker.ui.info.help.HelpFragment
 import com.bhavishay.coronatracker.ui.info.precautions.PrecautionsFragment
 import kotlinx.android.synthetic.main.home_fragment.*
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
-import java.text.SimpleDateFormat
-import java.util.*
+
 
 class HomeFragment : Fragment() {
 
@@ -46,11 +44,14 @@ class HomeFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
                 R.id.action_search_app ->{
-                val shareIntent = Intent(Intent.ACTION_SEND)
-                    shareIntent.setType("text/plain")
-                    .putExtra(Intent.EXTRA_TEXT,"This is the App link")
-                    startActivity(shareIntent)
+                    startActivity(Intent(context,SearchActivity::class.java))
                 }
+                 R.id.action_share_app ->{
+                val shareIntent = Intent(Intent.ACTION_SEND)
+                shareIntent.setType("text/plain")
+                    .putExtra(Intent.EXTRA_TEXT,"This is the App link")
+                startActivity(shareIntent)
+            }
         }
         return super.onOptionsItemSelected(item)
     }

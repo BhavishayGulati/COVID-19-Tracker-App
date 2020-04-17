@@ -22,9 +22,8 @@ class PrecautionsFragment : Fragment() {
         return inflater.inflate(R.layout.precautions_fragment, container, false)
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
-        super.onViewCreated(view, savedInstanceState)
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
         arrowBtn.setBackgroundResource(R.drawable.ic_keyboard_arrow_down_black_24dp)
         arrowBtn2.setBackgroundResource(R.drawable.ic_keyboard_arrow_down_black_24dp)
         arrowBtn.setOnClickListener {
@@ -76,5 +75,11 @@ class PrecautionsFragment : Fragment() {
                 startActivity(intent)
             }
         }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        super.onViewCreated(view, savedInstanceState)
+
     }
 }

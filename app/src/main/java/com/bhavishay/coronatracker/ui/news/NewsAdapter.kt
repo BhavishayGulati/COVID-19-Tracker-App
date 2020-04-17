@@ -8,14 +8,10 @@ import android.view.ViewGroup
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bhavishay.coronatracker.R
-import com.bhavishay.coronatracker.activities.NewsActivity
 import com.bhavishay.coronatracker.helpers.DiffUtilCallBack
-import com.bhavishay.coronatracker.helpers.TimeHelper
 import com.bhavishay.coronatracker.models.data.NewsItem
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.news_item_list.view.*
-import java.text.SimpleDateFormat
-import java.util.*
 
 class NewsAdapter : PagedListAdapter<NewsItem,NewsAdapter.ViewHolder>(DiffUtilCallBack()) {
 

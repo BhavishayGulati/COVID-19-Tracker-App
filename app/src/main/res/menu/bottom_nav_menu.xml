@@ -16,4 +16,9 @@
         android:icon="@drawable/rss_icon"
         android:title="@string/title_news" />
 
+    <item
+        android:id="@+id/nav_rumours"
+        android:title="@string/rumours"
+        android:icon="@drawable/map_icon"/>
+
 </menu>
