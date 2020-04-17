@@ -1,6 +1,7 @@
 package com.bhavishay.coronatracker.ui.news
 
 import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,8 +35,8 @@ class NewsAdapter : PagedListAdapter<NewsItem,NewsAdapter.ViewHolder>(DiffUtilCa
                 newsPublishedDate.text = newsItem.timeString
                 picasso.load(newsItem.urlToImage).into(newsImage)
                 itemView.setOnClickListener {v ->
-                    val intent = Intent(v.context, NewsActivity::class.java)
-                    intent.putExtra("url",newsItem.url)
+                    val intent = Intent(Intent.ACTION_VIEW)
+                    intent.data = Uri.parse(newsItem.url)
                     v.context.startActivity(intent)
                 }
 
