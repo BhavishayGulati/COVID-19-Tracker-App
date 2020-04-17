@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
            override fun onPageSelected(position: Int) {
              nav_view.selectedItemId =  when(position){
                    0 -> R.id.nav_home
-                     1 -> R.id.stats
+                     1 -> R.id.nav_stats
                  2 -> R.id.nav_news
                  3->R.id.nav_rumours
                  else -> R.id.nav_home
