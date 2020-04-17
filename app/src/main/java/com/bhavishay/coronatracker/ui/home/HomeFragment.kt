@@ -25,8 +25,6 @@ class HomeFragment : Fragment() {
 
     private lateinit var viewModel: HomeViewModel
     private lateinit var countryListAdapter: CountryListAdapter
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -41,20 +39,6 @@ class HomeFragment : Fragment() {
         inflater.inflate(R.menu.top_menu,menu)
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
-                R.id.action_search_app ->{
-
-                }
-                 R.id.action_share_app ->{
-                val shareIntent = Intent(Intent.ACTION_SEND)
-                shareIntent.setType("text/plain")
-                    .putExtra(Intent.EXTRA_TEXT,"This is the App link")
-                startActivity(shareIntent)
-            }
-        }
-        return super.onOptionsItemSelected(item)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
