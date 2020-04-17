@@ -1,5 +1,6 @@
 package com.bhavishay.coronatracker.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -82,10 +83,13 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
         when(item.itemId){
             R.id.action_search_app -> {
-                Toast.makeText(this,"Search Pressed",Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this,SearchActivity::class.java))
             }
             R.id.action_share_app -> {
-                Toast.makeText(this,"Share App Pressed",Toast.LENGTH_SHORT).show()
+                val shareIntent = Intent(Intent.ACTION_SEND)
+                shareIntent.setType("text/plain")
+                    .putExtra(Intent.EXTRA_TEXT,"This is the App link")
+                startActivity(shareIntent)
             }
         }
 

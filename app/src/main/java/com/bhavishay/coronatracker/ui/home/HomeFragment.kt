@@ -44,7 +44,7 @@ class HomeFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
                 R.id.action_search_app ->{
-                    startActivity(Intent(context,SearchActivity::class.java))
+
                 }
                  R.id.action_share_app ->{
                 val shareIntent = Intent(Intent.ACTION_SEND)
