@@ -1,11 +1,13 @@
 package com.bhavishay.coronatracker.ui.news
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bhavishay.coronatracker.R
+import com.bhavishay.coronatracker.activities.NewsActivity
 import com.bhavishay.coronatracker.helpers.DiffUtilCallBack
 import com.bhavishay.coronatracker.helpers.TimeHelper
 import com.bhavishay.coronatracker.models.data.NewsItem
@@ -23,6 +25,7 @@ class NewsAdapter : PagedListAdapter<NewsItem,NewsAdapter.ViewHolder>(DiffUtilCa
         private val newsPublishedDate = itemView.newspubDate
         private val newsImage = itemView.newsImage
 
+
         fun bindView(newsItem: NewsItem){
             val picasso = Picasso.Builder(itemView.context).build()
 
@@ -30,6 +33,11 @@ class NewsAdapter : PagedListAdapter<NewsItem,NewsAdapter.ViewHolder>(DiffUtilCa
                 newsSourceText.text = newsItem.source.sourceName
                 newsPublishedDate.text = newsItem.timeString
                 picasso.load(newsItem.urlToImage).into(newsImage)
+                itemView.setOnClickListener {v ->
+                    val intent = Intent(v.context, NewsActivity::class.java)
+                    intent.putExtra("url",newsItem.url)
+                    v.context.startActivity(intent)
+                }
 
 
         }
