@@ -49,6 +49,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                    0 -> R.id.nav_home
                      1 -> R.id.stats
                  2 -> R.id.nav_news
+                 3->R.id.nav_rumours
                  else -> R.id.nav_home
              }
            }
@@ -66,6 +67,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
             R.id.nav_home -> viewPager.currentItem = 0
             R.id.nav_stats-> viewPager.currentItem = 1
             R.id.nav_news -> viewPager.currentItem = 2
+            R.id.nav_rumours -> viewPager.currentItem = 3
         }
         return true
     }
