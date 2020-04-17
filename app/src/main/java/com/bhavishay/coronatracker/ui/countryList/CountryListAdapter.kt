@@ -1,14 +1,18 @@
 package com.bhavishay.coronatracker.ui.countryList
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bhavishay.coronatracker.R
+import com.bhavishay.coronatracker.activities.CountryActivity
 import com.bhavishay.coronatracker.charts.SummaryPieChart
 import com.bhavishay.coronatracker.helpers.TimeHelper
 import com.bhavishay.coronatracker.models.data.Country
 import com.bhavishay.coronatracker.models.data.WorldTotalStats
+import kotlinx.android.synthetic.main.activity_country.view.*
 import kotlinx.android.synthetic.main.country_item_list.view.*
 import kotlinx.android.synthetic.main.item_world_stats.view.*
 import java.text.SimpleDateFormat
@@ -51,6 +55,7 @@ class CountryListAdapter(private val countries:List<Country>, private val worldT
         if(getItemViewType(position) == TYPE_WORLD_STATS_ITEM)
             (holder as StatsViewHolder).bindView(worldTotalStats)
         else (holder as CountryViewHolder).bindView(countries[position-1])
+
     }
 }
 
@@ -62,6 +67,9 @@ class CountryViewHolder(v: View): RecyclerView.ViewHolder(v) {
     private val deathsText = v.stateDeadValueTextView
     private val recoveredText = v.stateCuredValueTextView
     private val countryNameText = v.stateTextView
+    private val pieChart = v.country_pie_chart
+    private val mortalityRatePieChart = v.mortality_rate_country
+
 
     fun bindView(country:Country){
         with(country){
@@ -69,7 +77,20 @@ class CountryViewHolder(v: View): RecyclerView.ViewHolder(v) {
             deathsText.text = deaths
             recoveredText.text = totalRecovered
             countryNameText.text = countryName
+//            pieChart.configureCountry(country)
+//            mortalityRatePieChart.configureMortality(((deaths.replace(",","").toDouble()/cases.replace(",","").toDouble())*100).toFloat())
+        }
+        itemView.setOnClickListener{
+            val intent = Intent(it.context,CountryActivity::class.java)
+            intent.putExtra("name",country.countryName)
+            intent.putExtra("cases",country.cases)
+            intent.putExtra("active",country.activeCases)
+            intent.putExtra("cured",country.totalRecovered)
+            intent.putExtra("deaths",country.deaths)
+            intent.putExtra("newDeaths",country.newDeaths)
+            intent.putExtra("newCases",country.newCases)
 
+            it.context.startActivity(intent)
         }
     }
 
@@ -96,7 +117,6 @@ class StatsViewHolder(v:View):RecyclerView.ViewHolder(v){
             val date = formatter.parse(statsTakenAt)
             lastUpdateText.text = "Updated ${TimeHelper.getTimeAgo(date.time)}"
             pieChart.configure(worldTotalStats)
-
         }
     }
 }
