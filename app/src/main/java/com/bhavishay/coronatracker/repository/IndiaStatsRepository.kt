@@ -83,7 +83,7 @@ private val stateStatsDatabase: StateStatsDatabase
     private suspend fun refreshStateStats():IndiaTotalStats?{
 
         try {
-            delay(2000)
+            delay(5000)
             Log.d("ApiResponse","refreshing india stats from api")
             val indiaStatsResponse = StatsApi.retrofitService.getIndiaStats()
             return if(indiaStatsResponse.isSuccessful){

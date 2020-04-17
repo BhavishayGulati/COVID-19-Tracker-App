@@ -2,7 +2,12 @@ package com.bhavishay.coronatracker.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.MenuItem
+import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
+
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import com.bhavishay.coronatracker.R
@@ -49,6 +54,8 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
            }
 
        })
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar)
 
         nav_view.setOnNavigationItemSelectedListener(this)
 
@@ -60,6 +67,26 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
             R.id.nav_stats-> viewPager.currentItem = 1
             R.id.nav_news -> viewPager.currentItem = 2
         }
+        return true
+    }
+
+
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        when(item.itemId){
+            R.id.action_search_app -> {
+                Toast.makeText(this,"Search Pressed",Toast.LENGTH_SHORT).show()
+            }
+            R.id.action_share_app -> {
+                Toast.makeText(this,"Share App Pressed",Toast.LENGTH_SHORT).show()
+            }
+        }
+
         return true
     }
 }
