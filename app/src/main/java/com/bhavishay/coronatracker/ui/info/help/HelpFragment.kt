@@ -42,6 +42,11 @@ class HelpFragment : Fragment() {
             }
             startActivity(intent)
         }
+        lockdown.setOnClickListener {
+            val lockdown = Intent(Intent.ACTION_VIEW)
+            lockdown.setData(Uri.parse("https://1drv.ms/b/s!Avd5iVsATqWEhzvO9oxUXn-p6l6a?e=XDHskY"))
+            startActivity(lockdown)
+        }
 
         helpline_message.setOnClickListener{
             val message = Intent(Intent.ACTION_VIEW)
