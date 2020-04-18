@@ -17,11 +17,10 @@ class ViewPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm)
             0-> HomeFragment()
             1-> StatesPage()
             2 -> NewsFragment()
-            3 -> RumoursFragment()
             else-> HomeFragment()
         }
     }
     override fun getCount(): Int {
-        return 4
+        return 3
     }
 }

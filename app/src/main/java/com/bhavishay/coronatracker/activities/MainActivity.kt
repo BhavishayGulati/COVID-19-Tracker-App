@@ -50,7 +50,6 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                    0 -> R.id.nav_home
                      1 -> R.id.nav_stats
                  2 -> R.id.nav_news
-                 3->R.id.nav_rumours
                  else -> R.id.nav_home
              }
            }
@@ -68,7 +67,6 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
             R.id.nav_home -> viewPager.currentItem = 0
             R.id.nav_stats-> viewPager.currentItem = 1
             R.id.nav_news -> viewPager.currentItem = 2
-            R.id.nav_rumours -> viewPager.currentItem = 3
         }
         return true
     }
@@ -82,9 +80,9 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         when(item.itemId){
-            R.id.action_search_app -> {
-                startActivity(Intent(this,SearchActivity::class.java))
-            }
+//            R.id.action_search_app -> {
+//
+//            }
             R.id.action_share_app -> {
                 val shareIntent = Intent(Intent.ACTION_SEND)
                 shareIntent.setType("text/plain")

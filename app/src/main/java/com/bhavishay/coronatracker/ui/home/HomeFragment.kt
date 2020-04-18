@@ -1,6 +1,5 @@
 package com.bhavishay.coronatracker.ui.home
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
@@ -10,8 +9,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.bhavishay.coronatracker.R
-import com.bhavishay.coronatracker.activities.SearchActivity
-import com.bhavishay.coronatracker.helpers.TimeHelper
 import com.bhavishay.coronatracker.repository.WorldStatsRepository
 import com.bhavishay.coronatracker.repository.database.CountryStatsDatabase
 import com.bhavishay.coronatracker.repository.database.WorldStatsDatabase
