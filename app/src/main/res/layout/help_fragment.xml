@@ -84,6 +84,7 @@
         android:padding="5dp"
         android:drawablePadding="5dp"
         android:drawableStart="@drawable/help"/>
+
     <TextView android:background="@color/pastelBlue"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
@@ -103,8 +104,27 @@
         android:drawableStart="@drawable/mentalsf"
         android:text="@string/help_mental_health"
         />
+    <TextView android:background="@color/pastelBlue"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="30dp"
+        android:id="@+id/lockdown"
+        android:layout_below="@id/mentalhealth_details"
+        android:focusable="true"
+        android:clickable="true"
+        android:gravity="center"
+        android:padding="5dp"
+        android:drawablePadding="5dp"
+        android:drawableStart="@drawable/ic_rules"
+        android:text="@string/lockdown"
+        />
 
-<!--    <TextView-->
+    <!--    <TextView-->
 <!--        android:id="@+id/txt_phone_details"-->
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="wrap_content"-->
