@@ -46,5 +46,5 @@
     <string name="new_cases">New Cases</string>
 
     <string name="message_splash">Global Data on the COVID-19 (Corona Virus) Pandemic</string>
-    <string name="message_dont_panic">Stay Home Save Life</string>
+    <string name="message_dont_panic">#StayHomeSaveLife</string>
 </resources>
