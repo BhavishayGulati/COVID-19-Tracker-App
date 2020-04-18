@@ -13,5 +13,9 @@
         <item name="colorAccent">@color/pastelMoreLightBlue</item>
     </style>
 
+    <style name="AppTheme.Splash" parent="AppTheme">
+        <item name="android:windowBackground">@drawable/background_splash</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+    </style>
 
 </resources>

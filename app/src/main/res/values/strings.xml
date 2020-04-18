@@ -41,8 +41,10 @@
     <string name="myth2">Drinking alcohol does not protect you against COVID-19 and can be dangerous.</string>
     <string name="myth1">Exposing yourself to the sun or to temperatures higher than 25C degrees DOES NOT prevent the coronavirus disease (COVID-19).</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="rumours">Rumours</string>
     <string name="new_cases">New Cases</string>
+
+    <string name="message_splash">Global Data on the COVID-19 (Corona Virus) Pandemic</string>
+    <string name="message_dont_panic">Stay Home Save Life</string>
 </resources>
