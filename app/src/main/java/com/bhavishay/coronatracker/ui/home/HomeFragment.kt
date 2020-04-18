@@ -1,7 +1,13 @@
 package com.bhavishay.coronatracker.ui.home
 
+import android.app.SearchManager
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.*
+import android.widget.SearchView
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Observer
@@ -18,7 +24,7 @@ import com.bhavishay.coronatracker.ui.info.precautions.PrecautionsFragment
 import kotlinx.android.synthetic.main.home_fragment.*
 
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), SearchView.OnQueryTextListener {
 
     private lateinit var viewModel: HomeViewModel
     private lateinit var countryListAdapter: CountryListAdapter
@@ -31,9 +37,29 @@ class HomeFragment : Fragment() {
         return inflater.inflate(R.layout.home_fragment, container, false)
     }
 
-     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.top_menu,menu)
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.top_menu, menu)
+        val searchItem = menu.findItem(R.id.action_search_app)
+        val searchManager = context?.getSystemService(Context.SEARCH_SERVICE) as SearchManager
+        val searchView: SearchView? = searchItem?.actionView as SearchView
+
+        searchView?.queryHint = "Search Countries"
+        searchView?.setOnQueryTextListener(this)
+
+
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.action_share_app -> {
+                val shareIntent = Intent(Intent.ACTION_SEND)
+                shareIntent.setType("text/plain")
+                    .putExtra(Intent.EXTRA_TEXT, "This is the App link")
+                startActivity(shareIntent)
+            }
+        }
+
+        return true
     }
 
 
@@ -41,26 +67,25 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-            nav_precautions.setOnClickListener{
-                val fragmentTransaction:FragmentTransaction = parentFragmentManager.beginTransaction()
-                fragmentTransaction.replace(R.id.container,PrecautionsFragment())
-                 .addToBackStack(null)
-                 .commit()
-            }
+        nav_precautions.setOnClickListener {
+            val fragmentTransaction: FragmentTransaction = parentFragmentManager.beginTransaction()
+            fragmentTransaction.replace(R.id.container, PrecautionsFragment())
+                .addToBackStack(null)
+                .commit()
+        }
 
-            nav_help.setOnClickListener{
-                val fragmentTransaction = parentFragmentManager.beginTransaction()
-                fragmentTransaction.replace((R.id.container),HelpFragment())
-                    .addToBackStack(null)
-                    .commit()
-            }
-
+        nav_help.setOnClickListener {
+            val fragmentTransaction = parentFragmentManager.beginTransaction()
+            fragmentTransaction.replace((R.id.container), HelpFragment())
+                .addToBackStack(null)
+                .commit()
+        }
 
 
         //setting liveData observers
         recyclerView.layoutManager = LinearLayoutManager(context)
         viewModel.worldTotalStats.observe(viewLifecycleOwner, Observer { stats ->
-            countryListAdapter = CountryListAdapter(viewModel.countriesList,stats)
+            countryListAdapter = CountryListAdapter(viewModel.countriesList, stats)
 
             recyclerView.adapter = countryListAdapter
         })
@@ -71,26 +96,38 @@ class HomeFragment : Fragment() {
         })
 
         swipeToRefresh.setOnRefreshListener {
-            viewModel.getWorldStats(WorldStatsRepository(
-                WorldStatsDatabase.getInstance(context!!),
-                CountryStatsDatabase.getInstance(context!!)
-            ))
+            viewModel.getWorldStats(
+                WorldStatsRepository(
+                    WorldStatsDatabase.getInstance(context!!),
+                    CountryStatsDatabase.getInstance(context!!)
+                )
+            )
         }
 
 
-
-
-
-
-        }
+    }
 
     override fun onResume() {
-        viewModel.getWorldStats(WorldStatsRepository(
-            WorldStatsDatabase.getInstance(context!!),
-            CountryStatsDatabase.getInstance(context!!)
-        ))
+        viewModel.getWorldStats(
+            WorldStatsRepository(
+                WorldStatsDatabase.getInstance(context!!),
+                CountryStatsDatabase.getInstance(context!!)
+            )
+        )
         super.onResume()
     }
+
+    override fun onQueryTextSubmit(p0: String?): Boolean {
+        Log.d("search","country $p0")
+        countryListAdapter.filter.filter(p0)
+        return true
     }
+
+    override fun onQueryTextChange(p0: String?): Boolean {
+        Log.d("search","country $p0")
+        countryListAdapter.filter.filter(p0)
+        return true
+    }
+}
 
 

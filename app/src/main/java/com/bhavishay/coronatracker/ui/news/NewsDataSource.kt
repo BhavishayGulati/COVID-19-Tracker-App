@@ -36,7 +36,7 @@ class NewsDataSource(private val scope:CoroutineScope,
                     }
                 }
             }catch (exception:Exception){
-                Log.e("newsList","Error loading news ${exception.message}")
+                Log.e("newsList","Error loading news ${exception.localizedMessage}")
             }
         }
     }
@@ -64,7 +64,7 @@ class NewsDataSource(private val scope:CoroutineScope,
 
                 }
             }catch (exception:Exception){
-                Log.e("newsList","Error loading news ${exception.message}")
+                Log.e("newsList","Error loading news ${exception.localizedMessage}")
             }
         }
     }

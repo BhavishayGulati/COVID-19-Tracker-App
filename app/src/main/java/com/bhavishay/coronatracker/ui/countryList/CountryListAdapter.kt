@@ -4,6 +4,8 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Filter
+import android.widget.Filterable
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bhavishay.coronatracker.R
@@ -17,13 +19,23 @@ import kotlinx.android.synthetic.main.country_item_list.view.*
 import kotlinx.android.synthetic.main.item_world_stats.view.*
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.ArrayList
 
 const val TYPE_WORLD_STATS_ITEM = 1
 const val TYPE_COUNTRY_LIST_ITEM = 2
-class CountryListAdapter(private val countries:List<Country>, private val worldTotalStats: WorldTotalStats) : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
+class CountryListAdapter()
+    : RecyclerView.Adapter<RecyclerView.ViewHolder>(), Filterable{
 
+    private lateinit var countriesList : List<Country>
+    private lateinit var countriesListFiltered : List<Country>
+    private lateinit var worldTotalStats: WorldTotalStats
 
-   // var summary = Country()
+    constructor( countries:List<Country>,  worldTotalStats: WorldTotalStats):this(){
+        this.countriesList = countries
+        this.countriesListFiltered = countries
+        this.worldTotalStats = worldTotalStats
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):RecyclerView.ViewHolder {
 
         if (viewType == TYPE_WORLD_STATS_ITEM) {
@@ -40,7 +52,7 @@ class CountryListAdapter(private val countries:List<Country>, private val worldT
     }
 
     override fun getItemCount(): Int {
-        return countries.size + 1
+        return countriesListFiltered.size + 1
     }
 
 
@@ -54,9 +66,40 @@ class CountryListAdapter(private val countries:List<Country>, private val worldT
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if(getItemViewType(position) == TYPE_WORLD_STATS_ITEM)
             (holder as StatsViewHolder).bindView(worldTotalStats)
-        else (holder as CountryViewHolder).bindView(countries[position-1])
+        else (holder as CountryViewHolder).bindView(countriesListFiltered[position-1])
 
     }
+
+    override fun getFilter(): Filter {
+        return object:Filter(){
+            override fun performFiltering(p0: CharSequence?): FilterResults {
+                val query = p0.toString()
+                countriesListFiltered = if(query.isEmpty())
+                    countriesList
+                else{
+                    val countries = ArrayList<Country>()
+                    for(country in countriesList){
+                        if(country.countryName.toLowerCase().contains(query.toLowerCase()))
+                            countries.add(country)
+                    }
+                    countries
+                }
+
+                val filterResults = FilterResults()
+                filterResults.values = countriesListFiltered
+                return filterResults
+            }
+
+            override fun publishResults(p0: CharSequence?, p1: FilterResults?) {
+               countriesListFiltered = p1?.values as ArrayList<Country>
+                notifyDataSetChanged()
+            }
+
+        }
+    }
+
+
+
 }
 
 

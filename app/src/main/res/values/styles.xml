@@ -18,4 +18,9 @@
         <item name="android:windowTranslucentNavigation">true</item>
     </style>
 
+<style name="ToolbarStyle" parent="Theme.AppCompat.Light.DarkActionBar">
+    <item name="actionMenuTextColor">@color/white</item>
+
+</style>
+
 </resources>
