@@ -20,6 +20,9 @@
 
 <style name="ToolbarStyle" parent="Theme.AppCompat.Light.DarkActionBar">
     <item name="actionMenuTextColor">@color/white</item>
+    <item name="android:textColorPrimary">@color/white</item>
+    <item name="android:textColorSecondary">@color/white</item>
+    <item name="hintTextColor">@color/white</item>
 
 </style>
 
