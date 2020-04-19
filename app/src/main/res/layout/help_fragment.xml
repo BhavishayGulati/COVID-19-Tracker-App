@@ -22,6 +22,7 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:text="@string/reporting_illness"
+        android:layout_gravity="center_horizontal"
         android:textColor="@color/white"
         android:textSize="30sp"
         android:textStyle="bold" />
@@ -33,10 +34,9 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
-        android:gravity="center"
         android:text="@string/illness"
         android:textColor="@color/white"
-        android:textSize="18sp" />
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/helpline_no"
@@ -49,7 +49,7 @@
         android:focusable="true"
         android:text="@string/helpline_no"
         android:textColor="@color/pastelRed"
-        android:textSize="18sp"
+        android:textSize="15sp"
         android:textStyle="bold" />
 
     <TextView
@@ -63,19 +63,19 @@
         android:focusable="true"
         android:text="@string/helpline_message"
         android:textColor="@color/pastelRed"
-        android:textSize="18sp"
+        android:textSize="15sp"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/txt_phone_details"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="30dp"
         android:background="@color/pastelBlue"
         android:clickable="true"
-        android:drawableStart="@drawable/help"
+        android:drawableStart="@drawable/ic_customer_service"
         android:drawablePadding="5dp"
         android:focusable="true"
         android:gravity="center"
@@ -88,12 +88,12 @@
         android:id="@+id/mentalhealth_details"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="30dp"
         android:background="@color/pastelBlue"
         android:clickable="true"
-        android:drawableStart="@drawable/mentalsf"
+        android:drawableStart="@drawable/ic_emotions"
         android:focusable="true"
         android:gravity="center"
         android:text="@string/help_mental_health"
@@ -105,13 +105,13 @@
         android:id="@+id/lockdown"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="130dp"
         android:background="@color/pastelBlue"
         android:clickable="true"
-        android:drawableStart="@drawable/ic_rules"
+        android:drawableStart="@drawable/ic_learning"
         android:drawablePadding="5dp"
         android:focusable="true"
         android:gravity="center"
@@ -274,7 +274,7 @@
                 android:layout_marginEnd="10dp"
                 android:text="@string/helplines_given"
                 android:textColor="@color/pastelOrange"
-                android:textSize="18sp"
+                android:textSize="15sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

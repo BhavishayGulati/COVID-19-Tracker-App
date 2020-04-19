@@ -30,6 +30,7 @@
             android:layout_height="match_parent"
             android:layout_margin="5dp"
             android:gravity="center_horizontal"
+            android:padding="6dp"
             android:orientation="vertical">
 
 
@@ -39,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/label_total_confirmed"
                 android:textColor="@color/pastelOrange"
-                android:textSize="20sp" />
+                android:textSize="16sp" />
 
             <FrameLayout
                 android:layout_width="wrap_content"
@@ -59,7 +60,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:textColor="@color/pastelOrange"
-                    android:textSize="36sp"
+                    android:textSize="30sp"
                     tools:text="1,776,157" />
 
             </FrameLayout>
@@ -91,7 +92,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:textColor="@color/pastelRed"
-                    android:textSize="32sp"
+                    android:textSize="30sp"
                     tools:text="108,804" />
 
             </FrameLayout>
@@ -102,7 +103,7 @@
                 android:layout_marginTop="8dp"
                 android:text="@string/label_total_recovered"
                 android:textColor="@color/pastelGreen"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
 
 
             <FrameLayout
@@ -123,7 +124,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:textColor="@color/pastelGreen"
-                    android:textSize="36sp"
+                    android:textSize="30sp"
                     tools:text="402,903" />
 
             </FrameLayout>
@@ -140,7 +141,7 @@
         android:layout_marginTop="10dp"
         android:text="@string/mortality_rate"
         android:textColor="@android:color/holo_red_light"
-        android:textSize="20sp" />
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/tv_mortality_rate_value"
@@ -151,7 +152,7 @@
         android:layout_marginTop="10dp"
         android:layout_toEndOf="@id/textView"
         android:textColor="@android:color/holo_red_light"
-        android:textSize="20sp"
+        android:textSize="16sp"
 
         tools:text="5%" />
 
@@ -161,7 +162,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/charts"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:gravity="center"
         android:textColor="@color/colorTextSecondary"
