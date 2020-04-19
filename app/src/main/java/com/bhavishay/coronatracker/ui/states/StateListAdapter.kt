@@ -1,10 +1,13 @@
 package com.bhavishay.coronatracker.ui.states
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bhavishay.coronatracker.R
+import com.bhavishay.coronatracker.activities.CountryActivity
+import com.bhavishay.coronatracker.activities.StateActivity
 import com.bhavishay.coronatracker.helpers.TimeHelper
 import com.bhavishay.coronatracker.models.data.IndiaTotalStats
 import com.bhavishay.coronatracker.models.data.State
@@ -59,6 +62,18 @@ class StateViewHolder(v: View) : RecyclerView.ViewHolder(v) {
             state_Name.text = stateName
             recovered_Cases.text = recoveredCases
         }
+        itemView.setOnClickListener{
+            val intent = Intent(it.context, StateActivity::class.java)
+            intent.putExtra("name",state.stateName)
+            intent.putExtra("cases",state.confirmedCases)
+            intent.putExtra("active",state.activeCases)
+            intent.putExtra("cured",state.recoveredCases)
+            intent.putExtra("deaths",state.deaths)
+            intent.putExtra("newDeaths",state.deltaDeaths)
+            intent.putExtra("newCases",state.deltaConfirmed)
+
+            it.context.startActivity(intent)
+        }
     }
 }
 
@@ -79,7 +94,6 @@ class IndiaStatsViewHolder(v: View):RecyclerView.ViewHolder(v){
             val date = formatter.parse(lastUpdatedTime)
             lastUpdatedText.text = "Updated ${TimeHelper.getTimeAgo(date.time)}"
             mortalityRate.text = ((deaths.replace(",","").toDouble()/confirmedCases.replace(",","").toDouble())*100).toInt().toString() + "%"
-
         }
     }
 }

@@ -2,16 +2,20 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
     tools:context=".ui.info.precautions.PrecautionsFragment" android:background="@color/pastelBlue" android:layout_height="match_parent" android:layout_width="match_parent" xmlns:tools="http://schemas.android.com/tools" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android">
+
             <androidx.core.widget.NestedScrollView
                 android:id="@+id/nestedScrollView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:layout_editor_absoluteX="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 tools:layout_editor_absoluteY="16dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
+
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -22,16 +26,19 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
+
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_margin="10dp">
+
                             <androidx.cardview.widget.CardView
                                 android:id="@+id/cardView"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent">
+
                                 <androidx.constraintlayout.widget.ConstraintLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
@@ -232,8 +239,6 @@
                     </androidx.cardview.widget.CardView>
 
 
-
-
                     <androidx.cardview.widget.CardView
                         android:id="@+id/cardView1"
                         android:layout_width="match_parent"
@@ -385,8 +390,6 @@
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
                     </androidx.cardview.widget.CardView>
-
-
 
 
                     <androidx.cardview.widget.CardView
@@ -554,46 +557,43 @@
                     </androidx.cardview.widget.CardView>
 
 
-
                     <androidx.appcompat.widget.LinearLayoutCompat
-                        android:layout_height="wrap_content"
-                        android:layout_width="match_parent"
                         android:id="@+id/linearLayoutCompat"
-                        android:orientation="vertical"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_margin="10dp"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/cardView3"
                         tools:layout_editor_absoluteY="453dp">
 
 
-
-
                         <androidx.appcompat.widget.LinearLayoutCompat
-                            android:layout_height="wrap_content"
                             android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
                             android:orientation="horizontal"
                             android:weightSum="2">
 
                             <ImageView
-                                android:layout_height="50dp"
-                                android:layout_width="160dp"
                                 android:id="@+id/dos_donts_image"
+                                android:layout_width="160dp"
+                                android:layout_height="50dp"
+                                android:layout_margin="5dp"
+                                android:layout_weight="1"
                                 android:clickable="true"
                                 android:focusable="true"
-                                android:layout_margin="5dp"
-                                android:src="@drawable/dos_n_donts"
-                                android:layout_weight="1" />
+                                android:src="@drawable/dos_n_donts" />
 
                             <ImageView
-                                android:layout_height="50dp"
-                                android:layout_width="150dp"
                                 android:id="@+id/learn_more_image"
+                                android:layout_width="150dp"
+                                android:layout_height="50dp"
                                 android:layout_margin="5dp"
+                                android:layout_weight="1"
                                 android:clickable="true"
                                 android:focusable="true"
-                                android:src="@drawable/learn_more"
-                                android:layout_weight="1" />
+                                android:src="@drawable/learn_more" />
 
                         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -601,34 +601,34 @@
                         -
 
                         <androidx.appcompat.widget.LinearLayoutCompat
-                            android:layout_height="wrap_content"
                             android:layout_width="match_parent"
-                            android:orientation="horizontal"
+                            android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
+                            android:orientation="horizontal"
                             android:padding="5dp"
                             android:weightSum="2">
 
                             <TextView
-                                android:layout_height="wrap_content"
                                 android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:text="@string/covid_19_do_s_amp_don_ts"
                                 android:layout_weight="1"
-                                android:textStyle="bold"
                                 android:gravity="center"
+                                android:text="@string/covid_19_do_s_amp_don_ts"
+                                android:textColor="@color/white"
                                 android:textSize="14sp"
-                                android:textColor="@color/white" />
+                                android:textStyle="bold" />
 
                             <TextView
-                                android:layout_height="wrap_content"
                                 android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
                                 android:layout_marginStart="25dp"
-                                android:text="@string/learn_more_about_covid_19"
                                 android:layout_weight="1"
-                                android:textStyle="bold"
                                 android:gravity="center"
+                                android:text="@string/learn_more_about_covid_19"
+                                android:textColor="@color/white"
                                 android:textSize="14sp"
-                                android:textColor="@color/white" />
+                                android:textStyle="bold" />
 
                         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -660,14 +660,11 @@
                                 android:textStyle="bold" />
 
 
-
                             <androidx.appcompat.widget.LinearLayoutCompat
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical"
                                 android:padding="10dp">
-
-
 
 
                                 <androidx.appcompat.widget.LinearLayoutCompat
@@ -695,8 +692,6 @@
                                 </androidx.appcompat.widget.LinearLayoutCompat>
 
 
-
-
                                 <androidx.appcompat.widget.LinearLayoutCompat
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
@@ -718,10 +713,6 @@
                                         android:textColor="@color/white" />
 
                                 </androidx.appcompat.widget.LinearLayoutCompat>
-
-
-
-
 
 
                                 <androidx.appcompat.widget.LinearLayoutCompat
@@ -775,9 +766,6 @@
                             </androidx.appcompat.widget.LinearLayoutCompat>
                         </androidx.appcompat.widget.LinearLayoutCompat>
                     </androidx.cardview.widget.CardView>
-
-
-
 
 
                 </LinearLayout>

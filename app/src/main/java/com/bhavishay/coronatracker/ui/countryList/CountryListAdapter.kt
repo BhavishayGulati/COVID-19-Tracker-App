@@ -6,11 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bhavishay.coronatracker.R
 import com.bhavishay.coronatracker.activities.CountryActivity
-import com.bhavishay.coronatracker.charts.SummaryPieChart
 import com.bhavishay.coronatracker.helpers.TimeHelper
 import com.bhavishay.coronatracker.models.data.Country
 import com.bhavishay.coronatracker.models.data.WorldTotalStats
@@ -110,8 +108,8 @@ class CountryViewHolder(v: View): RecyclerView.ViewHolder(v) {
     private val deathsText = v.stateDeadValueTextView
     private val recoveredText = v.stateCuredValueTextView
     private val countryNameText = v.stateTextView
-    private val pieChart = v.country_pie_chart
-    private val mortalityRatePieChart = v.mortality_rate_country
+    private val pieChart = v.state_pie_chart
+    private val mortalityRatePieChart = v.mortality_rate_state
 
 
     fun bindView(country:Country){
