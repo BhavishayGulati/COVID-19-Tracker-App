@@ -28,7 +28,7 @@ interface NewsApiService{
                         @Query("from") dateFrom:String,
                         @Query("page")pageNo:Int,
                         @Query("pageSize") pageSize:Int = 20,
-                        @Query("apiKey") apiKey:String = "dbfbf476dafd4deebfdb2821466db00b"
+                        @Query("apiKey") apiKey:String = "88eba6e8f7a540efa5e3e9ce34a5cda1"
     ): Response<NewsApiResponse>
 
 }
