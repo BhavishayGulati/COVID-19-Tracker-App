@@ -84,7 +84,8 @@
                         android:layout_width="20dp"
                         android:layout_height="18dp"
                         android:tint="#99ffffff"
-                        app:srcCompat="@drawable/cured" />
+                        app:srcCompat="@drawable/cured"
+                        android:contentDescription="TODO" />
 
                     <TextView
                         android:id="@+id/countryCuredLabel"
@@ -119,7 +120,8 @@
                         android:layout_height="18dp"
                         android:layout_gravity="center_horizontal"
                         android:tint="#99ffffff"
-                        app:srcCompat="@drawable/dead" />
+                        app:srcCompat="@drawable/dead"
+                        android:contentDescription="TODO" />
 
                     <TextView
                         android:id="@+id/countryDeadLabel"

@@ -24,6 +24,6 @@ class StateActivity : AppCompatActivity() {
         txt_new_cases.text = intent.getStringExtra("newCases")
         txt_new_deaths.text = intent.getStringExtra("newDeaths")
         mortality_rate_state.configureMortality(mortalityRate)
-        state_pie_chart.configureCountry(cases!!,deaths!!,totalRecovered!!)
+        state_pie_chart.configureCountry(cases, deaths,totalRecovered!!)
     }
 }

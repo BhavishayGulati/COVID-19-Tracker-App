@@ -44,9 +44,7 @@ data class IndiaTotalStats(
 
     @ColumnInfo(name = "last_network_call_time")
     var lastNetworkCallTime: String = ""
-) {
-
-}
+)
 
 data class IndiaStatsResponse(
     @Json(name = "total_values") val indiaTotalStat: IndiaTotalStats,

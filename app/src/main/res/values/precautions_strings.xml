@@ -8,7 +8,7 @@
     <string name="difficulty_in_breathing">Difficulty in Breathing</string>
     <string name="how_its_spread">HOW ITS SPREAD</string>
     <string name="infection1">Through respiratory droplets produced when an infected person coughs or sneezes These droplets can land in the mouth or noses of people who are nearby or possibly inhaled into lungs</string>
-    <string name="infection2" tools:ignore="TypographyDashes">Through close contact with COVID–19 infected person approximately withing 2 metres 0 6 feet or 2-3 steps.</string>
+    <string name="infection2" tools:ignore="TypographyDashes">Through close contact with COVID–19 infected person approximately within 2 metres 0 6 feet or 2-3 steps.</string>
     <string name="infection3">By touching objects and surfaces contaminated by Coronavirus and then touching the mouth, nose or eyes.</string>
     <string name="prevention1">Wash your hands regulary. </string>
     <string name="prevention2">Use sanitizers more frequently</string>

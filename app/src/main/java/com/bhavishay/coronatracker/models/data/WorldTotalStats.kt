@@ -31,8 +31,7 @@ data class WorldTotalStats(
 
     @ColumnInfo(name = "last_network_call_time")
     var lastNetworkCallTime: String = ""
-) {
-}
+)
 
 
 data class WorldStatsResponse(
@@ -42,4 +41,4 @@ data class WorldStatsResponse(
 
     @Json(name = "world_total")
     val worldTotalStats: WorldTotalStats
-) {}
+)

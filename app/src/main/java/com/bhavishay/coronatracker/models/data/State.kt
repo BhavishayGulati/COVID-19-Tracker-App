@@ -48,5 +48,4 @@ data class State(
     @Json(name = "statecode")
     @ColumnInfo(name = "statecode")
     val stateCode: String
-) {
-}
+)

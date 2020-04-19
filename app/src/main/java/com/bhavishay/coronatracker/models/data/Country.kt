@@ -50,6 +50,5 @@ data class Country(
     @Json(name = "total_cases_per_1m_population")
     @ColumnInfo(name = "total_cases_per_1m_population")
     val totalCasesPerMillion :String
-) {
-}
+)
 

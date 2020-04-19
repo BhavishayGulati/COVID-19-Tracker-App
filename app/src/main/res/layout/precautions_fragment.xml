@@ -55,6 +55,7 @@
                                         app:layout_constraintTop_toTopOf="parent" />
 
                                     <ImageView
+                                        android:contentDescription="@string/todo"
                                         android:id="@+id/circleImage"
                                         android:layout_width="50dp"
                                         android:layout_height="50dp"
@@ -111,7 +112,7 @@
                             </androidx.cardview.widget.CardView>
 
 
-                            -
+
 
                             <androidx.constraintlayout.widget.ConstraintLayout
                                 android:id="@+id/expandableView"
@@ -128,6 +129,7 @@
                                 app:layout_constraintVertical_bias="0.0">
 
                                 <ImageView
+                                    android:contentDescription="@string/todo"
                                     android:id="@+id/phoneIcon"
                                     android:layout_width="30dp"
                                     android:layout_height="30dp"
@@ -149,6 +151,7 @@
                                     app:layout_constraintTop_toBottomOf="@+id/phoneIcon" />
 
                                 <ImageView
+                                    android:contentDescription="@string/todo"
                                     android:id="@+id/mailIcon"
                                     android:layout_width="30dp"
                                     android:layout_height="30dp"
@@ -168,6 +171,7 @@
                                     app:layout_constraintTop_toBottomOf="@+id/mailIcon" />
 
                                 <ImageView
+                                    android:contentDescription="@string/todo"
                                     android:id="@+id/soar_throat_icon"
                                     android:layout_width="30dp"
                                     android:layout_height="30dp"
@@ -187,6 +191,7 @@
                                     app:layout_constraintTop_toBottomOf="@+id/soar_throat_icon" />
 
                                 <ImageView
+                                    android:contentDescription="@string/todo"
                                     android:id="@+id/headache_icon"
                                     android:layout_width="30dp"
                                     android:layout_height="30dp"
@@ -207,6 +212,7 @@
                                     app:layout_constraintVertical_bias="0.612" />
 
                                 <ImageView
+                                    android:contentDescription="@string/todo"
                                     android:id="@+id/breathing_icon"
                                     android:layout_width="30dp"
                                     android:layout_height="30dp"
@@ -282,6 +288,7 @@
                                     android:layout_margin="10dp">
 
                                     <ImageView
+                                        android:contentDescription="@string/todo"
                                         android:id="@+id/circleImage1"
                                         android:layout_width="49dp"
                                         android:layout_height="50dp"
@@ -583,7 +590,7 @@
                                 android:layout_weight="1"
                                 android:clickable="true"
                                 android:focusable="true"
-                                android:src="@drawable/dos_n_donts" />
+                                android:src="@drawable/ic_dosndonts" />
 
                             <ImageView
                                 android:id="@+id/learn_more_image"
@@ -593,7 +600,7 @@
                                 android:layout_weight="1"
                                 android:clickable="true"
                                 android:focusable="true"
-                                android:src="@drawable/learn_more" />
+                                android:src="@drawable/ic_learn" />
 
                         </androidx.appcompat.widget.LinearLayoutCompat>
 

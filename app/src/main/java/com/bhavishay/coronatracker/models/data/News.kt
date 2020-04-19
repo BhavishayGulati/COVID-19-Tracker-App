@@ -35,7 +35,5 @@ data class NewsItem(
 data class ArticleSource(
     @Json(name = "id")val sourceId: String?,
     @Json(name = "name")val sourceName: String
-) {
-
-}
+)
 

@@ -44,14 +44,14 @@ class HelpFragment : Fragment() {
         }
         lockdown.setOnClickListener {
             val lockdown = Intent(Intent.ACTION_VIEW)
-            lockdown.setData(Uri.parse("https://1drv.ms/b/s!Avd5iVsATqWEhzvO9oxUXn-p6l6a?e=XDHskY"))
+            lockdown.data = Uri.parse("https://1drv.ms/b/s!Avd5iVsATqWEhzvO9oxUXn-p6l6a?e=XDHskY")
             startActivity(lockdown)
         }
 
         helpline_message.setOnClickListener{
             val message = Intent(Intent.ACTION_VIEW)
-            message.setData(Uri.parse("smsto:"+1075));
-            message.setType("vnd.android-dir/mms-sms");
+            message.data = Uri.parse("smsto:"+1075)
+            message.type = "vnd.android-dir/mms-sms"
             startActivity(message)
         }
         mentalhealth_details.setOnClickListener {

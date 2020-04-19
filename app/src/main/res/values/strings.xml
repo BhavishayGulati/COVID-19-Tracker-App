@@ -48,4 +48,5 @@
     <string name="message_splash">Global Data on the COVID-19 (Corona Virus) Pandemic</string>
     <string name="message_dont_panic">#StayHomeSaveLife</string>
     <string name="helpline_numbers_n_state_amp_district_wise"><![CDATA[Helpline Numbers \n State & District Wise]]></string>
+    <string name="todo">TODO</string>
 </resources>
