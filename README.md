@@ -4,7 +4,7 @@ Coronavirus tracker app for Android with Google News Feed.
 ![Android](https://img.shields.io/badge/Android%20-green)
 ![Kotlin](https://img.shields.io/badge/Kotlin%20v1.3.61-orange?logo=Kotlin&logoColor=white)
 
-![image](https://user-images.githubusercontent.com/16730661/77967675-3ed2b280-72ee-11ea-8802-7b4538f59bba.png)
+
 
 ## Features
 * __Live data__: Gets the most recent data from [JHU CRC](https://coronavirus.jhu.edu/map.html).
@@ -12,9 +12,9 @@ Coronavirus tracker app for Android with Google News Feed.
    * Total number of cases
    * Estimaded mortality rate
 * __Country List__: Shows the countries with number of confirmed, deaths and recovered cases.
-* __Map__: Shows recent case numbers for countries and US States.
+* __States List__: Shows the list of states of India with number of confirmed, deaths and recovered cases 
 * __News__: Shows the latest local news about COV-19 ([Google News](https://news.google.com/))
-* __Localization__: Supports 17 non-English languages.
+
 
 ## How to Use
 Build from source code
