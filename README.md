@@ -8,10 +8,10 @@ Coronavirus tracker app for Android with Google News Feed.
 ## Features
 * __Live data__: Gets the most recent data from [JHU CRC](https://coronavirus.jhu.edu/map.html).
 * __PieCharts__:
-   * Total number of cases
-   * Estimaded mortality rate
+   * Total number of cases.
+   * Estimaded mortality rate.
 * __Country List__: Shows the countries with number of confirmed, deaths and recovered cases.
-* __States List__: Shows the list of states of India with number of confirmed, deaths and recovered cases 
+* __States List__: Shows the list of states of India with number of confirmed, deaths and recovered cases. 
 * __News__: Shows the latest local news about COV-19 ([Google News](https://news.google.com/))
 
 
